@@ -8,6 +8,8 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Instructor : Individual
     {
+
+
         
     }
 }
