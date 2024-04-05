@@ -9,9 +9,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Calculation
     {
-
-        {
-    private readonly IFileOperations _fileOperations;
+        private readonly IFileOperations _fileOperations;
         private readonly string _directoryPath;
 
         public Calculation(IFileOperations fileOperations)
@@ -46,7 +44,7 @@ namespace ShapeshifterStudioPaymentCalculator
             foreach (string entry in entriesWithinPeriod)
             {
                 // Example entry format: "02/28/2024 13:45 - Instructor: Ruby, 89 PTS"
-                string[] parts = entry.Split('-', StringSplitOptions.TrimEntries);
+                string[] parts = entry.Split('-', StringSplitOptions.None);
                 string instructor = parts[1].Substring("Instructor:".Length).Trim();
                 int points = int.Parse(parts[2].Split(' ')[0]);
 
