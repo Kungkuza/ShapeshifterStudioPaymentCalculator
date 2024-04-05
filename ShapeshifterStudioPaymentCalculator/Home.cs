@@ -26,7 +26,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void StdntFdbkBtn_Click(object sender, EventArgs e)
         {
-            Feedback Fdbk = new Feedback;
+            Feedback Fdbk = new Feedback();
             Fdbk.Show();
             this.Hide();
         }

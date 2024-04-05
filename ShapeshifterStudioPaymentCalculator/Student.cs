@@ -8,5 +8,12 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Student : Individual
     {
+        protected string FeedBack {  get; set; }
+        protected int pointsGiven {  get; set; }
+
+        protected Student(string name, string discordID, string feedBack, int pointsgiven) : base(name, discordID)
+        {
+
+        }
     }
 }

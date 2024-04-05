@@ -8,5 +8,10 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Calculator
     {
+        protected int dollarAmountAvailUSD {  get; set; }
+        protected int rollingMonthsNum {  get; set; }
+
+        //setamountavailable
+        //getamountavailable
     }
 }

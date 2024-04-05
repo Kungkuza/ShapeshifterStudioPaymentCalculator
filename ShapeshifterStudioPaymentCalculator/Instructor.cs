@@ -9,7 +9,18 @@ namespace ShapeshifterStudioPaymentCalculator
     internal class Instructor : Individual
     {
 
+        protected int pointsAttributed {  get; set; }
 
-        
+        //Constructor
+        protected Instructor(string name, string discordID) : base(name, discordID)
+        {
+            
+        }
+
+        //Methods
+        protected void UpdateInstructorPoints()
+        {
+
+        }
     }
 }
