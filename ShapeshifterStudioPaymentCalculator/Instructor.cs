@@ -12,7 +12,7 @@ namespace ShapeshifterStudioPaymentCalculator
         protected int pointsAttributed {  get; set; }
 
         //Constructor
-        protected Instructor(string name, string discordID) : base(name, discordID)
+        public Instructor(string name, string discordID) : base(name, discordID)
         {
             
         }

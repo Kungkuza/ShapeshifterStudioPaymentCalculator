@@ -29,11 +29,17 @@ namespace ShapeshifterStudioPaymentCalculator
             string NewInstName = NewInstNameTxtbox.Text;
 
             string AddInstructDCID = InstructDCIDTxtbox.Text;
+
+            Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID); 
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
         {
             string RmDCID = RmInstrSubmit.Text;
+
+            //foreach (Instructor instructor in instructors)
+
+            //Instructor newInstructor = null;
         }
     }
 }

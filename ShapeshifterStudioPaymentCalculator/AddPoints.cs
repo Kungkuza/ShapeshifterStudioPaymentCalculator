@@ -26,10 +26,13 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void AddPtsSubmit_Click(object sender, EventArgs e)
         {
+            string instructFile = "instructors.txt";
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;
+
+            Logbook.Log(instructFile, selectedDate + whichInstructor + typeofAction + pointsawarded); 
         }
     }
 }

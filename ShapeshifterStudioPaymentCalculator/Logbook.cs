@@ -47,7 +47,7 @@ namespace ShapeshifterStudioPaymentCalculator
         }
 
 
-        public void Log(string fileName, string entry)
+        public void Log(string fileName, string entry) //outdated
         {
             string filePath = Path.Combine(_directoryPath, fileName);
 
