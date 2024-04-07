@@ -23,5 +23,12 @@ namespace ShapeshifterStudioPaymentCalculator
             home.Show();
             this.Hide();
         }
+
+        private void SubmitFeedBk_Click(object sender, EventArgs e)
+        {
+            string StudentName = StudentNameTxtBox.Text;
+            string StudentFeedback = StudentFeedBkRTxtBox.Text;
+            string StudentPoints = StudentPointModifier.Text;
+        }
     }
 }

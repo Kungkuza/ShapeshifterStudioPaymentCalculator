@@ -23,5 +23,17 @@ namespace ShapeshifterStudioPaymentCalculator
             home.Show();
             this.Hide();
         }
+
+        private void AddInstrSubmit_Click(object sender, EventArgs e)
+        {
+            string NewInstName = NewInstNameTxtbox.Text;
+
+            string AddInstructDCID = InstructDCIDTxtbox.Text;
+        }
+
+        private void RmInstrSubmit_Click(object sender, EventArgs e)
+        {
+            string RmDCID = RmInstrSubmit.Text;
+        }
     }
 }
