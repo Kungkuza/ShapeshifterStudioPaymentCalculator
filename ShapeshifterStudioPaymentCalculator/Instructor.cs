@@ -10,6 +10,8 @@ namespace ShapeshifterStudioPaymentCalculator
     {
 
         protected int pointsAttributed {  get; set; }
+        public string DCID { get; set; }
+        //public List<Instructor> instructors = new List<Instructor>();
 
         //Constructor
         public Instructor(string name, string discordID) : base(name, discordID)
@@ -22,5 +24,7 @@ namespace ShapeshifterStudioPaymentCalculator
         {
 
         }
+
+        //initialize instructorsFromFile
     }
 }

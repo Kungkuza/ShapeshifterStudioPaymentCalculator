@@ -12,6 +12,14 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddInstructor : Form
     {
+        List<Instructor> instructors = new List<Instructor>();
+        
+        public List<Instructor> Instructors
+        {
+            get { return instructors; }
+        }
+
+
         public AddInstructor()
         {
             InitializeComponent();
@@ -30,14 +38,21 @@ namespace ShapeshifterStudioPaymentCalculator
 
             string AddInstructDCID = InstructDCIDTxtbox.Text;
 
-            Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID); 
+            Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
+            instructors.Add(newInstructor);
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
         {
             string RmDCID = RmInstrSubmit.Text;
 
-            //foreach (Instructor instructor in instructors)
+            foreach (Instructor instructor in instructors.ToList())
+            {
+                if (instructor.DCID == RmDCID)
+                {
+                    instructors.Remove(instructor);
+                }
+            }
 
             //Instructor newInstructor = null;
         }
