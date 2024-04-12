@@ -23,5 +23,12 @@ namespace ShapeshifterStudioPaymentCalculator
             home.Show();
             this.Hide();
         }
+
+        private void SubmitUSDBtn_Click(object sender, EventArgs e)
+        {
+            string USDAvail = AvailUSDTxtBox.Text;
+            DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
+            string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
+        }
     }
 }

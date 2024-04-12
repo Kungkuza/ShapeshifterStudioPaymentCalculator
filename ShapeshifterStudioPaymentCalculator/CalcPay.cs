@@ -23,5 +23,12 @@ namespace ShapeshifterStudioPaymentCalculator
             home.Show();
             this.Hide();
         }
+
+        private void SubmitCalcPayBtn_Click(object sender, EventArgs e)
+        {
+            DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
+            string CPayInstructor = CPayInstcomboBox.Text;
+
+        }
     }
 }

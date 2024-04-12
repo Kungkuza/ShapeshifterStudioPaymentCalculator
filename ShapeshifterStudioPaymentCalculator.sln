@@ -5,6 +5,13 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShapeshifterStudioPaymentCalculator", "ShapeshifterStudioPaymentCalculator\ShapeshifterStudioPaymentCalculator.csproj", "{A28DC246-87AC-4F04-B922-0CC917E40A28}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{89ED68AA-3F28-4E09-BC46-537F2B9ED55F}"
+	ProjectSection(SolutionItems) = preProject
+		Instructors.txt = Instructors.txt
+		PointsLog.txt = PointsLog.txt
+		Students.txt = Students.txt
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

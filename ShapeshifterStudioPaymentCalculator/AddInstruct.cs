@@ -34,6 +34,8 @@ namespace ShapeshifterStudioPaymentCalculator
 
             Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
             instructors.Add(newInstructor);
+
+            //AddToFile
             //instructors.Add("Hi");
             
         }
@@ -49,6 +51,8 @@ namespace ShapeshifterStudioPaymentCalculator
                     instructors.Remove(instructor);
                 }
             }
+
+            //also remove from instructos.txt file
 
             //Instructor newInstructor = null;
         }
