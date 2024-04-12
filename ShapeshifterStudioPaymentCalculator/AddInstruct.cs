@@ -12,13 +12,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddInstructor : Form
     {
-        List<Instructor> instructors = new List<Instructor>();
-        
-        public List<Instructor> Instructors
-        {
-            get { return instructors; }
-        }
-
+        public static List<Instructor> instructors = new List<Instructor>();    
 
         public AddInstructor()
         {
@@ -40,6 +34,8 @@ namespace ShapeshifterStudioPaymentCalculator
 
             Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
             instructors.Add(newInstructor);
+            //instructors.Add("Hi");
+            
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)

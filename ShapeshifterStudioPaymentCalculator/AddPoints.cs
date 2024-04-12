@@ -32,7 +32,11 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
 
-            whichInstructor.DataSource = AddInstrucor.instructors;
+            //foreach
+
+            WhichInstCombo.Items.Add
+
+            WhichInstCombo.DataSource = ;
             whichInstructor.DisplayMember = "Name";
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();

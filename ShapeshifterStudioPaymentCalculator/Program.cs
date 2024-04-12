@@ -14,6 +14,8 @@ namespace ShapeshifterStudioPaymentCalculator
         [STAThread]
         static void Main()
         {
+            //Initialize file logs
+            //initialize instructor list
 
             //List<Instructor> =  new List<Instructors>();
             Application.EnableVisualStyles();
