@@ -49,12 +49,17 @@ namespace ShapeshifterStudioPaymentCalculator
 
         public void Log(string fileName, string entry) //outdated
         {
+
             string filePath = Path.Combine(_directoryPath, fileName);
 
             string currentDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
 
             // Concatenate the current date and time with the entry
             string newData = $"{currentDate} - {entry}";
+            if (fileName == "PointsLog.txt" )
+            {
+                entry = newData;
+            }
             //Add data to file
             _fileOperations.AppendToFile(filePath, entry);
         }
@@ -63,6 +68,28 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             string filePath = Path.Combine(_directoryPath, fileName);
             return _fileOperations.ReadFileLines(filePath);
+        }
+
+        public void RemoveEntry(string fileName, string searchTerm)
+        {
+            string filePath = Path.Combine(_directoryPath, fileName);
+
+            //Read all lines from the file
+            List<string> lines = new List<string>(_fileOperations.ReadFileLines(filePath));
+
+            //Iterate through the lines and remove the line containing the searchTerm
+            for (int i = lines.Count - 1; i >= 0; i--)
+            {
+                if (lines[i].Contains(searchTerm))
+                {
+                    lines.RemoveAt(i);
+                    //Assuming you want to remove only the first occurrence of the searchTerm
+                    break;
+                }
+            }
+
+            // Write the updated lines back to the file
+            File.WriteAllLines(filePath, lines);
         }
 
     }

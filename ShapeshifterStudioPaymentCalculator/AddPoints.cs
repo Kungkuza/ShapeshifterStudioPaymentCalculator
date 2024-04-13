@@ -28,7 +28,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void AddPtsSubmit_Click(object sender, EventArgs e)
         {
-            string instructFile = "instructors.txt";
+            string instructFile = "Instructors.txt";
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
 

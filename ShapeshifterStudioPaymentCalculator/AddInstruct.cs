@@ -12,7 +12,9 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddInstructor : Form
     {
-        public static List<Instructor> instructors = new List<Instructor>();    
+        //Accessing instructors list.
+        IList<Instructor> instructors = Program.instructors;
+
 
         public AddInstructor()
         {
@@ -35,9 +37,13 @@ namespace ShapeshifterStudioPaymentCalculator
             Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
             instructors.Add(newInstructor);
 
-            //AddToFile
-            //instructors.Add("Hi");
-            
+            //Add instructor to file Instructors.txt
+            string logData = $"{NewInstName} + {AddInstructDCID}";
+            //In the format of Name then DCID
+            Program.instructorLogbook.Log("Instructor.txt", logData);
+
+
+
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
@@ -52,7 +58,9 @@ namespace ShapeshifterStudioPaymentCalculator
                 }
             }
 
-            //also remove from instructos.txt file
+            //Logbook.RemoveEntry("Instructors.txt", DCID);
+
+            //also remove from instructors.txt file
 
             //Instructor newInstructor = null;
         }
