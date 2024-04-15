@@ -38,7 +38,7 @@
             // FileReadoutrichTextBox
             // 
             this.FileReadoutrichTextBox.Location = new System.Drawing.Point(268, 24);
-            this.FileReadoutrichTextBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FileReadoutrichTextBox.Margin = new System.Windows.Forms.Padding(2);
             this.FileReadoutrichTextBox.Name = "FileReadoutrichTextBox";
             this.FileReadoutrichTextBox.ReadOnly = true;
             this.FileReadoutrichTextBox.Size = new System.Drawing.Size(311, 319);
@@ -80,6 +80,7 @@
             this.download.TabIndex = 4;
             this.download.Text = "Download Points File";
             this.download.UseVisualStyleBackColor = true;
+            this.download.Click += new System.EventHandler(this.download_Click);
             // 
             // PointLogs
             // 
@@ -92,7 +93,7 @@
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FileReadoutrichTextBox);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PointLogs";
             this.Text = "Shapershifter Calculator - View Point System Logs";
             this.ResumeLayout(false);
