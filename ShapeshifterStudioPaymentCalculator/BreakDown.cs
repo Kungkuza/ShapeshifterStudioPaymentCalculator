@@ -29,6 +29,8 @@ namespace ShapeshifterStudioPaymentCalculator
             string USDAvail = AvailUSDTxtBox.Text;
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
+
+            
         }
     }
 }

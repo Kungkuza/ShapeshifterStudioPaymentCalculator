@@ -12,6 +12,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddInstructor : Form
     {
+        IList instructors = Program.instructors;
         //Accessing instructors list.
         IList<Instructor> instructors = Program.instructors;
 

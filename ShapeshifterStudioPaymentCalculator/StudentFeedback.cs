@@ -30,6 +30,10 @@ namespace ShapeshifterStudioPaymentCalculator
             string StudentFeedback = StudentFeedBkRTxtBox.Text;
             string StudentPoints = StudentPointModifier.Text;
             string InstructorName = InstructorNamecomboBox.SelectedItem.ToString();
+
+            //Interacts with the Pointslog text file, feedback goes on the back ofeach string
+
+            
         }
     }
 }
