@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +17,12 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             InitializeComponent();
             string FileReadoutRTB = FileReadoutrichTextBox.Text;
-            //Set RTB datasrc
+
+            string filePath = "PointsLog.txt";
+            string fileContents = File.ReadAllText(filePath);
+
+            // Set the text of the RichTextBox to display the file contents
+            FileReadoutrichTextBox.Text = fileContents;
         }
 
         private void BkFromViewPtLogs_Click(object sender, EventArgs e)
