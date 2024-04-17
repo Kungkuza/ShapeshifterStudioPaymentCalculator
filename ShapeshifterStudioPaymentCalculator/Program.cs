@@ -24,7 +24,7 @@ namespace ShapeshifterStudioPaymentCalculator
         static void Main()
         {
             // Initialize Logbook instances
-            instructorLogbook = new Logbook("Instructors.txt");
+            instructorLogbook = new Logbook('Instructors.txt');
             pointsLogbook = new Logbook("PointsLog.txt");
             studentsLogbook = new Logbook("Students.txt");
 

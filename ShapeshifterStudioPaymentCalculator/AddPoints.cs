@@ -14,6 +14,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddPoints : Form
     {
+        //IList<Instructor> instructorsList = Program.instructors;
         public AddPoints()
         {
             InitializeComponent();
@@ -36,10 +37,10 @@ namespace ShapeshifterStudioPaymentCalculator
 
             //foreach
 
-            WhichInstCombo.DataSource = instructors;
+            WhichInstCombo.DataSource = Program.instructors;
 
-            WhichInstCombo.DataSource = ;
-            whichInstructor.DisplayMember = "Name";
+            //WhichInstCombo.DataSource = ;
+            //whichInstructor.DisplayMember = "Name";
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;

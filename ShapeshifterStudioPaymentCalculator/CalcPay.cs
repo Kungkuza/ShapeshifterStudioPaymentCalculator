@@ -29,6 +29,9 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
             string CPayInstructor = CPayInstcomboBox.Text;
 
+            CPayInstcomboBox.Text = CPayInstructor;
+            CPayInstcomboBox.DataSource = null;
+
         }
     }
 }

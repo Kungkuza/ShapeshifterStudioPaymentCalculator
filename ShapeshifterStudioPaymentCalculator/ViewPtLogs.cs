@@ -15,6 +15,8 @@ namespace ShapeshifterStudioPaymentCalculator
         public PointLogs()
         {
             InitializeComponent();
+            string FileReadoutRTB = FileReadoutrichTextBox.Text;
+            //Set RTB datasrc
         }
 
         private void BkFromViewPtLogs_Click(object sender, EventArgs e)

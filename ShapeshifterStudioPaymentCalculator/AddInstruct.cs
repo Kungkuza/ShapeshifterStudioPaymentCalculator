@@ -36,7 +36,7 @@ namespace ShapeshifterStudioPaymentCalculator
             string AddInstructDCID = InstructDCIDTxtbox.Text;
 
             Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
-            instructors.Add(newInstructor);
+            Program.instructors.Add(newInstructor);
 
             //Add instructor to file Instructors.txt
             string logData = $"{NewInstName} + {AddInstructDCID}";
@@ -51,15 +51,15 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             string RmDCID = RmInstrSubmit.Text;
 
-            foreach (Instructor instructor in instructors.ToList())
+            foreach (Instructor instructor in Program.instructors.ToList())
             {
                 if (instructor.DCID == RmDCID)
                 {
-                    instructors.Remove(instructor);
+                    Program.instructors.Remove(instructor);
                 }
             }
 
-            //Logbook.RemoveEntry("Instructors.txt", DCID);
+           //Logbook.RemoveEntry("Instructors.txt", DCID);
 
             //also remove from instructors.txt file
 
