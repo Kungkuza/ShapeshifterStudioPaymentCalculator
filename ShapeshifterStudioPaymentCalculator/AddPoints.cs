@@ -32,31 +32,28 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             IList<string> actions = new List<string>();
             actions.Add("Lesson");
-            actions.Add("");
-            actions.Add("");
-            actions.Add("");
-            string instructFile = "Instructors.txt";
+            actions.Add("Assist Lesson");
+            actions.Add("Lesson Recording");
+            actions.Add("Lesson Planning");
+            actions.Add("Lesson Workshops");
+            actions.Add("TikToks/Socials Help");
+            string Pointsfile = "PointsLog.txt";
 
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
-
-
 
             //foreach
 
             WhichInstCombo.DataSource = Program.instructors;
             TypeofActionCombo.DataSource = actions;
-            
-
-            //WhichInstCombo.DataSource = ;
-            //whichInstructor.DisplayMember = "Name";
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;
 
             Logbook logbook = new Logbook();
 
-            logbook.Log(instructFile, selectedDate + whichInstructor + typeofAction + pointsawarded);
+            logbook.Log(Pointsfile, $"{selectedDate},{whichInstructor},{typeofAction},{pointsawarded}");
+
         }
     }
 }

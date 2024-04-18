@@ -32,6 +32,9 @@ namespace ShapeshifterStudioPaymentCalculator
             string InstructorName = InstructorNamecomboBox.SelectedItem.ToString();
 
             InstructorNamecomboBox.DataSource = Program.instructors;
+            Logbook logbook = new Logbook();
+
+            //Logbook.Log();
 
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
 

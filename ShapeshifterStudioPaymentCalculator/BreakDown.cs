@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -29,10 +30,25 @@ namespace ShapeshifterStudioPaymentCalculator
             string USDAvail = AvailUSDTxtBox.Text;
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
+            Logbook logbook = new Logbook();
+            string breakdownFilePath = Path.Combine(logbook.directoryPath, "BreakDown.txt");
+
+
+            try
+            {
+                // Read all lines from the BreakDown.txt file
+                string[] lines = File.ReadAllLines(breakdownFilePath);
+
+                // Set the text of the RichTextBox to the contents of the BreakDown.txt file
+                OwedAmountALLInstructorsRTB.Text = string.Join(Environment.NewLine, lines);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error displaying BreakDown.txt contents: {ex.Message}");
+            }
 
 
 
-            
         }
     }
 }
