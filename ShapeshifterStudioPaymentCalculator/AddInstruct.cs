@@ -43,8 +43,6 @@ namespace ShapeshifterStudioPaymentCalculator
             //In the format of Name then DCID
             Program.instructorLogbook.Log("Instructor.txt", logData);
 
-
-
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
@@ -59,11 +57,12 @@ namespace ShapeshifterStudioPaymentCalculator
                 }
             }
 
-           //Logbook.RemoveEntry("Instructors.txt", DCID);
+            var LBook = Program.instructorLogbook;
+            LBook.RemoveEntry("Instructors.txt", RmDCID);
 
             //also remove from instructors.txt file
 
-            //Instructor newInstructor = null;
+            //Instructor Instructor = null;
         }
     }
 }

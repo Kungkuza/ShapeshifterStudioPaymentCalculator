@@ -16,6 +16,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         // Declare list of instructors
         public static IList<Instructor> instructors = new List<Instructor>();
+        public static IList<Student> students = new List<Student>();
 
         /// <summary>
         /// The main entry point for the application.
@@ -24,13 +25,13 @@ namespace ShapeshifterStudioPaymentCalculator
         static void Main()
         {
             // Initialize Logbook instances
-            instructorLogbook = new Logbook('Instructors.txt');
+            instructorLogbook = new Logbook("Instructors.txt");
             pointsLogbook = new Logbook("PointsLog.txt");
             studentsLogbook = new Logbook("Students.txt");
 
             // Read lines from the "Instructors.txt" file and initialize the list of instructors
             InitializeInstructors();
-            InitializeStudents();
+            InitializeStudents(studentsLogbook, "Students.txt");
             //Init Students
 
             // Run the application
@@ -59,13 +60,12 @@ namespace ShapeshifterStudioPaymentCalculator
                 // Add error handling if needed for invalid lines
             }
         }
-        static List<Student> InitializeStudents(Logbook logbook, string fileName)
+        static IList<Student> InitializeStudents(Logbook logbook, string fileName)
         {
             // Read lines from the specified file
             IEnumerable<string> studentLines = logbook.ReadLog(fileName);
 
             // Parse lines and initialize student list
-            List<Student> students = new List<Student>();
             foreach (string line in studentLines)
             {
                 // Parse line and create Student object

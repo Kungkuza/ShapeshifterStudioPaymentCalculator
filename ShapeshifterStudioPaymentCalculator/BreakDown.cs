@@ -30,6 +30,8 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
 
+
+
             
         }
     }

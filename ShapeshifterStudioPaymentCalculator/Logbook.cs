@@ -34,23 +34,23 @@ namespace ShapeshifterStudioPaymentCalculator
 
         protected string InstructorName;
         protected string StudentName;
-        private readonly IFileOperations _fileOperations;
-        private readonly string _directoryPath;
+        private protected IFileOperations fileOperations;
+        private protected string directoryPath;
 
         //Constructor
-        public LogBook(IFileOperations fileOperations)
+        public void LogBook(IFileOperations fileOperations)
         {
-            _fileOperations = fileOperations;
+            //fileOperations = fileOp;
 
             // Get the directory of the solution file
-            _directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
 
 
         public void Log(string fileName, string entry) //outdated
         {
 
-            string filePath = Path.Combine(_directoryPath, fileName);
+            string filePath = Path.Combine(directoryPath, fileName);
 
             string currentDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
 
@@ -61,21 +61,21 @@ namespace ShapeshifterStudioPaymentCalculator
                 entry = newData;
             }
             //Add data to file
-            _fileOperations.AppendToFile(filePath, entry);
+            fileOperations.AppendToFile(filePath, entry);
         }
 
         public IEnumerable<string> ReadLog(string fileName)
         {
-            string filePath = Path.Combine(_directoryPath, fileName);
-            return _fileOperations.ReadFileLines(filePath);
+            string filePath = Path.Combine(directoryPath, fileName);
+            return fileOperations.ReadFileLines(filePath);
         }
 
         public void RemoveEntry(string fileName, string searchTerm)
         {
-            string filePath = Path.Combine(_directoryPath, fileName);
+            string filePath = Path.Combine(directoryPath, fileName);
 
             //Read all lines from the file
-            List<string> lines = new List<string>(_fileOperations.ReadFileLines(filePath));
+            List<string> lines = new List<string>(fileOperations.ReadFileLines(filePath));
 
             //Iterate through the lines and remove the line containing the searchTerm
             for (int i = lines.Count - 1; i >= 0; i--)

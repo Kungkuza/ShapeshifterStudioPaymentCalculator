@@ -31,7 +31,11 @@ namespace ShapeshifterStudioPaymentCalculator
             string StudentPoints = StudentPointModifier.Text;
             string InstructorName = InstructorNamecomboBox.SelectedItem.ToString();
 
+            InstructorNamecomboBox.DataSource = Program.instructors;
+
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
+
+
 
             
         }

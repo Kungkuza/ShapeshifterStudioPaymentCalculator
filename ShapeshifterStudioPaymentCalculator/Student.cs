@@ -11,10 +11,11 @@ namespace ShapeshifterStudioPaymentCalculator
         protected string FeedBack {  get; set; }
         protected int pointsGiven {  get; set; }
 
-        protected Student(string name, string discordID, string feedBack, int pointsgiven) : base(name, discordID)
+        public Student(string name, string discordID, string feedBack = "", int pointsGiven = 0) : base(name, discordID)
         {
-
+            string FeedBack = feedBack;
+            int PointsGiven = pointsGiven;
         }
-        
+
     }
 }
