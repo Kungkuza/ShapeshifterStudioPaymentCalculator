@@ -49,6 +49,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;
+            pointsawarded += " PTS";
 
             Logbook logbook = new Logbook();
 

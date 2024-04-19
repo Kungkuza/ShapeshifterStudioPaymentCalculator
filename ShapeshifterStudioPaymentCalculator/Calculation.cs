@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShapeshifterStudioPaymentCalculator
 {
+    //This class controls calculations for all instructors
     internal class Calculation
     {
         private readonly IFileOperations _fileOperations;
@@ -44,9 +45,9 @@ namespace ShapeshifterStudioPaymentCalculator
             foreach (string entry in entriesWithinPeriod)
             {
                 // Example entry format: "02/28/2024 13:45 - Instructor: Ruby, 89 PTS"
-                string[] parts = entry.Split('-', StringSplitOptions.None);
+                string[] parts = entry.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
                 string instructor = parts[1].Substring("Instructor:".Length).Trim();
-                int points = int.Parse(parts[2].Split(' ')[0]);
+                int points = int.Parse(parts[2].Split(',')[0]);
 
                 // Update points for the instructor
                 if (pointsByInstructor.ContainsKey(instructor))
@@ -76,7 +77,7 @@ namespace ShapeshifterStudioPaymentCalculator
         private bool IsWithinSixMonths(string entry, DateTime sixMonthsAgo)
         {
             // Example entry format: "02/28/2024 13:45 - Instructor: Ruby, 89 PTS"
-            string[] parts = entry.Split('-', StringSplitOptions.TrimEntries);
+            string[] parts = entry.Split(',').Select(p => p.Trim()).ToArray();
             string dateStr = parts[0];
 
             // Parse date from entry

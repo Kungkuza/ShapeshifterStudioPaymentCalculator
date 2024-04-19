@@ -38,12 +38,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.InstructorNamecomboBox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.StudentDCIDTxtBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BkFromStdntFdbk
             // 
             this.BkFromStdntFdbk.Location = new System.Drawing.Point(37, 316);
-            this.BkFromStdntFdbk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BkFromStdntFdbk.Margin = new System.Windows.Forms.Padding(2);
             this.BkFromStdntFdbk.Name = "BkFromStdntFdbk";
             this.BkFromStdntFdbk.Size = new System.Drawing.Size(56, 19);
             this.BkFromStdntFdbk.TabIndex = 0;
@@ -54,7 +56,7 @@
             // SubmitFeedBk
             // 
             this.SubmitFeedBk.Location = new System.Drawing.Point(255, 287);
-            this.SubmitFeedBk.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.SubmitFeedBk.Margin = new System.Windows.Forms.Padding(2);
             this.SubmitFeedBk.Name = "SubmitFeedBk";
             this.SubmitFeedBk.Size = new System.Drawing.Size(56, 19);
             this.SubmitFeedBk.TabIndex = 1;
@@ -65,7 +67,7 @@
             // StudentFeedBkRTxtBox
             // 
             this.StudentFeedBkRTxtBox.Location = new System.Drawing.Point(255, 126);
-            this.StudentFeedBkRTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StudentFeedBkRTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.StudentFeedBkRTxtBox.Name = "StudentFeedBkRTxtBox";
             this.StudentFeedBkRTxtBox.Size = new System.Drawing.Size(168, 79);
             this.StudentFeedBkRTxtBox.TabIndex = 3;
@@ -74,7 +76,7 @@
             // StudentNameTxtBox
             // 
             this.StudentNameTxtBox.Location = new System.Drawing.Point(255, 80);
-            this.StudentNameTxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StudentNameTxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.StudentNameTxtBox.Name = "StudentNameTxtBox";
             this.StudentNameTxtBox.Size = new System.Drawing.Size(168, 20);
             this.StudentNameTxtBox.TabIndex = 4;
@@ -82,7 +84,7 @@
             // StudentPointModifier
             // 
             this.StudentPointModifier.Location = new System.Drawing.Point(255, 242);
-            this.StudentPointModifier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.StudentPointModifier.Margin = new System.Windows.Forms.Padding(2);
             this.StudentPointModifier.Name = "StudentPointModifier";
             this.StudentPointModifier.Size = new System.Drawing.Size(76, 20);
             this.StudentPointModifier.TabIndex = 5;
@@ -131,12 +133,30 @@
             this.label4.TabIndex = 10;
             this.label4.Text = "Who is the instructor?";
             // 
+            // StudentDCIDTxtBox
+            // 
+            this.StudentDCIDTxtBox.Location = new System.Drawing.Point(440, 80);
+            this.StudentDCIDTxtBox.Name = "StudentDCIDTxtBox";
+            this.StudentDCIDTxtBox.Size = new System.Drawing.Size(100, 20);
+            this.StudentDCIDTxtBox.TabIndex = 11;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(440, 64);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.TabIndex = 12;
+            this.label5.Text = "Student\'s Discord ID?";
+            // 
             // Feedback
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.StudentDCIDTxtBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.InstructorNamecomboBox);
             this.Controls.Add(this.label3);
@@ -147,7 +167,7 @@
             this.Controls.Add(this.StudentFeedBkRTxtBox);
             this.Controls.Add(this.SubmitFeedBk);
             this.Controls.Add(this.BkFromStdntFdbk);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Feedback";
             this.Text = "Shapeshifter Calculator - Student Feedback";
             this.ResumeLayout(false);
@@ -167,5 +187,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox InstructorNamecomboBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox StudentDCIDTxtBox;
+        private System.Windows.Forms.Label label5;
     }
 }

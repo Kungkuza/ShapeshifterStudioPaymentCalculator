@@ -30,7 +30,7 @@ namespace ShapeshifterStudioPaymentCalculator
             string CPayInstructor = CPayInstcomboBox.Text;
 
             CPayInstcomboBox.Text = CPayInstructor;
-            CPayInstcomboBox.DataSource = null;
+            CPayInstcomboBox.DataSource = Program.instructors;
 
         }
     }

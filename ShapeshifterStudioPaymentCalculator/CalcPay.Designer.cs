@@ -80,6 +80,7 @@
             this.PaymentForTheMonthTxtBox.Location = new System.Drawing.Point(281, 154);
             this.PaymentForTheMonthTxtBox.MaxLength = 16;
             this.PaymentForTheMonthTxtBox.Name = "PaymentForTheMonthTxtBox";
+            this.PaymentForTheMonthTxtBox.ReadOnly = true;
             this.PaymentForTheMonthTxtBox.Size = new System.Drawing.Size(100, 20);
             this.PaymentForTheMonthTxtBox.TabIndex = 4;
             // 
@@ -97,6 +98,7 @@
             this.PercentofPointsTxtBox.Location = new System.Drawing.Point(281, 202);
             this.PercentofPointsTxtBox.MaxLength = 16;
             this.PercentofPointsTxtBox.Name = "PercentofPointsTxtBox";
+            this.PercentofPointsTxtBox.ReadOnly = true;
             this.PercentofPointsTxtBox.Size = new System.Drawing.Size(100, 20);
             this.PercentofPointsTxtBox.TabIndex = 6;
             // 

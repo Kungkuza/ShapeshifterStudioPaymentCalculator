@@ -8,6 +8,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Calculator
     {
+        //This class controls calculations for singular instructors
         protected int dollarAmountAvailUSD {  get; set; }
         protected int rollingMonthsNum {  get; set; }
 

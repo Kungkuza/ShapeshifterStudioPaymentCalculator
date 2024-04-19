@@ -32,16 +32,13 @@ namespace ShapeshifterStudioPaymentCalculator
             this.Hide();
         }
 
-        private void download_Click(object sender, EventArgs e)
+        private void Download_click(object sender, EventArgs e)
         {
             SaveFileDialog saveFileDialog = new SaveFileDialog();
 
             // Set the initial directory and filename (optional)
             saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             saveFileDialog.FileName = "PointsLog.txt";
-
-            // Set the file filter to specify the file type (optional)
-            //saveFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
 
             // Show the SaveFileDialog and check if the user clicked the OK button
             if (saveFileDialog.ShowDialog() == DialogResult.OK)
@@ -51,10 +48,8 @@ namespace ShapeshifterStudioPaymentCalculator
 
                 try
                 {
-                    // Write your file download logic here
-                    // For example, you can use File.WriteAllLines to write content to the file
+                    // file download 
                     string[] fileContent = File.ReadAllLines("PointsLog.txt");
-
 
                     MessageBox.Show("File downloaded successfully!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }

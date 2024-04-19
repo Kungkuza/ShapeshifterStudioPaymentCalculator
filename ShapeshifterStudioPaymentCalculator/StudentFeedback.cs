@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace ShapeshifterStudioPaymentCalculator
 {
@@ -30,17 +31,24 @@ namespace ShapeshifterStudioPaymentCalculator
             string StudentFeedback = StudentFeedBkRTxtBox.Text;
             string StudentPoints = StudentPointModifier.Text;
             string InstructorName = InstructorNamecomboBox.SelectedItem.ToString();
+            string StudentDiscord = StudentDCIDTxtBox.Text;
+            StudentPoints += "PTS";
+
+            string Pointsfile = "PointsLog.txt";
+
+            string currentTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
 
             InstructorNamecomboBox.DataSource = Program.instructors;
             Logbook logbook = new Logbook();
+            Program.students.Add(new Student(StudentName, StudentDiscord));
 
-            //Logbook.Log();
+            logbook.Log(Pointsfile, $"{currentTime}, {InstructorName}, {StudentName}, {StudentFeedback}, {StudentPoints}");
 
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
 
 
 
-            
+
         }
     }
 }

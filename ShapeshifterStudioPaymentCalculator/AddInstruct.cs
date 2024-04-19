@@ -12,10 +12,6 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class AddInstructor : Form
     {
-        //Accessing instructors list.
-        IList<Instructor> instructors = Program.instructors;
-
-
         public AddInstructor()
         {
             InitializeComponent();
@@ -59,9 +55,6 @@ namespace ShapeshifterStudioPaymentCalculator
             var LBook = Program.instructorLogbook;
             LBook.RemoveEntry("Instructors.txt", RmDCID);
 
-            //also remove from instructors.txt file
-
-            //Instructor Instructor = null;
         }
     }
 }

@@ -38,6 +38,8 @@ namespace ShapeshifterStudioPaymentCalculator
         protected string StudentName;
         private protected IFileOperations fileOperations;
         private protected string directoryPath;
+        public string DirectoryPath { get; }
+
 
         //Constructors
         public void LogBook(IFileOperations fileOperations)
@@ -94,21 +96,20 @@ namespace ShapeshifterStudioPaymentCalculator
             // Write the updated lines back to the file
             File.WriteAllLines(filePath, lines);
         }
-        public void Ret6MoPay(string pointsLogFileName, string breakdownFileName, decimal amountOfUSDAvailable)
+        public List<string> Ret6MoPay(string pointsLogFileName, string breakdownFileName, decimal amountOfUSDAvailable)
         {
             // Get the full path of the files used
            
             string pointsLogFilePath = Path.Combine(directoryPath, pointsLogFileName);
             string breakdownFilePath = Path.Combine(directoryPath, breakdownFileName);
+            List<string> processedRecords = new List<string>();
+
 
             try
             {
                 // Read all lines from the PointsLog.txt file
                 string[] lines = File.ReadAllLines(pointsLogFilePath);
-
-                // Create a list to store processed records
-                List<string> processedRecords = new List<string>();
-
+               
                 // Iterate over each line in the PointsLog.txt file
                 foreach (string line in lines)
                 {
@@ -139,15 +140,17 @@ namespace ShapeshifterStudioPaymentCalculator
                         }
                     }
                 }
-
-                // Write the processed records to BreakDown.txt file
                 File.WriteAllLines(breakdownFilePath, processedRecords);
+
+                return processedRecords;
+                // Write the processed records to BreakDown.txt file
             }
             catch (Exception ex)
             {
+                
                 Console.WriteLine($"Error processing PointsLog.txt: {ex.Message}");
             }
-
+            return processedRecords;
 
         }
 

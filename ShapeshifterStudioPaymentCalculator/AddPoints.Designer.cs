@@ -43,7 +43,7 @@
             // AddPtsCal
             // 
             this.AddPtsCal.Location = new System.Drawing.Point(37, 78);
-            this.AddPtsCal.Margin = new System.Windows.Forms.Padding(7, 7, 7, 7);
+            this.AddPtsCal.Margin = new System.Windows.Forms.Padding(7);
             this.AddPtsCal.Name = "AddPtsCal";
             this.AddPtsCal.TabIndex = 0;
             // 
@@ -51,7 +51,7 @@
             // 
             this.TypeofActionCombo.FormattingEnabled = true;
             this.TypeofActionCombo.Location = new System.Drawing.Point(475, 152);
-            this.TypeofActionCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.TypeofActionCombo.Margin = new System.Windows.Forms.Padding(2);
             this.TypeofActionCombo.Name = "TypeofActionCombo";
             this.TypeofActionCombo.Size = new System.Drawing.Size(92, 21);
             this.TypeofActionCombo.TabIndex = 2;
@@ -59,7 +59,7 @@
             // PtsAmountTxtbox
             // 
             this.PtsAmountTxtbox.Location = new System.Drawing.Point(475, 221);
-            this.PtsAmountTxtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PtsAmountTxtbox.Margin = new System.Windows.Forms.Padding(2);
             this.PtsAmountTxtbox.Name = "PtsAmountTxtbox";
             this.PtsAmountTxtbox.Size = new System.Drawing.Size(92, 20);
             this.PtsAmountTxtbox.TabIndex = 3;
@@ -67,7 +67,7 @@
             // BkFromAddPts
             // 
             this.BkFromAddPts.Location = new System.Drawing.Point(37, 300);
-            this.BkFromAddPts.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BkFromAddPts.Margin = new System.Windows.Forms.Padding(2);
             this.BkFromAddPts.Name = "BkFromAddPts";
             this.BkFromAddPts.Size = new System.Drawing.Size(56, 19);
             this.BkFromAddPts.TabIndex = 4;
@@ -124,15 +124,15 @@
             this.WhichInstCombo.DisplayMember = "(none)";
             this.WhichInstCombo.FormattingEnabled = true;
             this.WhichInstCombo.Location = new System.Drawing.Point(475, 78);
-            this.WhichInstCombo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.WhichInstCombo.Margin = new System.Windows.Forms.Padding(2);
             this.WhichInstCombo.Name = "WhichInstCombo";
             this.WhichInstCombo.Size = new System.Drawing.Size(92, 21);
             this.WhichInstCombo.TabIndex = 9;
             // 
             // AddPtsSubmit
             // 
-            this.AddPtsSubmit.Location = new System.Drawing.Point(413, 288);
-            this.AddPtsSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddPtsSubmit.Location = new System.Drawing.Point(475, 288);
+            this.AddPtsSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.AddPtsSubmit.Name = "AddPtsSubmit";
             this.AddPtsSubmit.Size = new System.Drawing.Size(57, 31);
             this.AddPtsSubmit.TabIndex = 10;
@@ -156,7 +156,7 @@
             this.Controls.Add(this.PtsAmountTxtbox);
             this.Controls.Add(this.TypeofActionCombo);
             this.Controls.Add(this.AddPtsCal);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddPoints";
             this.Text = "Shapershifter Calculator - Add Points";
             this.ResumeLayout(false);

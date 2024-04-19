@@ -12,7 +12,7 @@ using System.Windows.Forms;
 namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class Form3 : Form
-    {
+    {       
         public Form3()
         {
             InitializeComponent();
@@ -31,7 +31,8 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
             Logbook logbook = new Logbook();
-            string breakdownFilePath = Path.Combine(logbook.directoryPath, "BreakDown.txt");
+            string breakdownFilePath = Path.Combine(logbook.DirectoryPath, "BreakDown.txt");
+
 
 
             try

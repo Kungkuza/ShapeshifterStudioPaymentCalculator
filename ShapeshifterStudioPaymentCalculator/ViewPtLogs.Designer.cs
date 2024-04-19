@@ -80,7 +80,7 @@
             this.download.TabIndex = 4;
             this.download.Text = "Download Points File";
             this.download.UseVisualStyleBackColor = true;
-            this.download.Click += new System.EventHandler(this.download_Click);
+            this.download.Click += new System.EventHandler(this.Download_click);
             // 
             // PointLogs
             // 
