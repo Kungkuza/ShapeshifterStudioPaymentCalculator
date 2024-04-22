@@ -12,6 +12,7 @@ namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class CalculatePay : Form
     {
+        //needs ccalculator
         public CalculatePay()
         {
             InitializeComponent();

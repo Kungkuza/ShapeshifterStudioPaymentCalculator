@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ShapeshifterStudioPaymentCalculator
 {
-    //This class controls calculations for all instructors
+    //This class controls calculations for all instructors aka breakdown
     internal class Calculation
     {
         private readonly IFileOperations _fileOperations;

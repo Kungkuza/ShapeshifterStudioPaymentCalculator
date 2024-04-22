@@ -35,6 +35,7 @@ namespace ShapeshifterStudioPaymentCalculator
             StudentPoints += "PTS";
 
             string Pointsfile = "PointsLog.txt";
+            string Studentsfile = "Students.txt";
 
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
 
@@ -43,6 +44,7 @@ namespace ShapeshifterStudioPaymentCalculator
             Program.students.Add(new Student(StudentName, StudentDiscord));
 
             logbook.Log(Pointsfile, $"{currentTime}, {InstructorName}, {StudentName}, {StudentFeedback}, {StudentPoints}");
+            logbook.Log(Studentsfile, $"{currentTime}, {StudentName}, {StudentFeedback}");
 
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
 
