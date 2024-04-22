@@ -30,12 +30,20 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
             string CPayInstructor = CPayInstcomboBox.Text;
             string PaymenyReadout = PaymentForTheMonthTxtBox.Text;
-            string PercentReadout = PaymentForTheMonthTxtBox.Text;  
+            string PercentReadout = PaymentForTheMonthTxtBox.Text;
+            string PointsLogName = "PointsLog.txt";
 
             CPayInstcomboBox.Text = CPayInstructor;
             CPayInstcomboBox.DataSource = Program.instructors;
 
-            Calculation calcpay = new Calculation();
+            IFileOperations fileOperations = new FileOperations();
+
+            // Create an instance of Calculation by passing the fileOperations instance
+            Calculator Calc = new Calculator();
+
+            // Now you can use the calculation instance
+            List <string> CalculatedList = Calc.GetInstructorRecords(PointsLogName, CPayInstructor);
+
 
         }
     }

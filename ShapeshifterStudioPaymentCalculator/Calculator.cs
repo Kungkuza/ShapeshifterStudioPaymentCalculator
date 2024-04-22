@@ -17,6 +17,11 @@ namespace ShapeshifterStudioPaymentCalculator
         //setamountavailable
         //getamountavailable
 
+        public Calculator()
+        {
+
+        }
+
         public List<string> GetInstructorRecords(string pointsLogFileName, string instructorName)
         {
             string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -56,7 +61,7 @@ namespace ShapeshifterStudioPaymentCalculator
                         if (recordInstructorName == instructorName && date >= DateTime.Now.AddMonths(-6))
                         {
                             decimal percentage = (decimal)points / totalPoints * 100;
-                            string record = $"{recordInstructorName}, DCID {this.Instructor.DCID} {points} PTS, {percentage:F2}%";
+                            string record = $"{recordInstructorName}, DCID {"null"} {points} PTS, {percentage:F2}%";
                             instructorRecords.Add(record);
                         }
                     }
