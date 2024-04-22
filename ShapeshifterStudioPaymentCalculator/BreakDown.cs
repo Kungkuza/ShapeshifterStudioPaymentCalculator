@@ -33,7 +33,7 @@ namespace ShapeshifterStudioPaymentCalculator
             Logbook logbook = new Logbook();
             string breakdownFilePath = Path.Combine(logbook.DirectoryPath, "BreakDown.txt");
 
-
+            //Logbook.Get
 
             try
             {
@@ -47,7 +47,6 @@ namespace ShapeshifterStudioPaymentCalculator
             {
                 Console.WriteLine($"Error displaying BreakDown.txt contents: {ex.Message}");
             }
-
 
 
         }

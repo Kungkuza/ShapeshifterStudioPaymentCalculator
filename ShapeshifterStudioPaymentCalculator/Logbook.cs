@@ -132,7 +132,7 @@ namespace ShapeshifterStudioPaymentCalculator
                                 decimal percentage = (decimal)points / amountOfUSDAvailable * 100;
 
                                 // Format the record for BreakDown.txt
-                                string record = $"{instructorName}, DCID {this.Instructor.DCID} {points} PTS, {percentage:F2}%, ${percentage / 100 * amountOfUSDAvailable:F2}";
+                                string record = $"{instructorName}, DCID {Instructor(InstructorName).DCID} {points} PTS, {percentage:F2}%, ${percentage / 100 * amountOfUSDAvailable:F2}";
 
                                 // Add the record to the processed records list
                                 processedRecords.Add(record);
@@ -153,6 +153,7 @@ namespace ShapeshifterStudioPaymentCalculator
             return processedRecords;
 
         }
+
 
     }
 }

@@ -29,9 +29,13 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
             string CPayInstructor = CPayInstcomboBox.Text;
+            string PaymenyReadout = PaymentForTheMonthTxtBox.Text;
+            string PercentReadout = PaymentForTheMonthTxtBox.Text;  
 
             CPayInstcomboBox.Text = CPayInstructor;
             CPayInstcomboBox.DataSource = Program.instructors;
+
+            Calculation calcpay = new Calculation();
 
         }
     }
