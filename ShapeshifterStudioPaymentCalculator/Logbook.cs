@@ -39,17 +39,22 @@ namespace ShapeshifterStudioPaymentCalculator
         private protected IFileOperations fileOperations;
         private protected string directoryPath;
         public string DirectoryPath { get; }
+        private string fileName { get; set; }
 
 
         //Constructors
-        public void LogBook(IFileOperations fileOperations)
+        public Logbook(IFileOperations fileOperations, string directoryPath, string fileName)
+    {
+        this.fileOperations = fileOperations;
+        this.directoryPath = directoryPath;
+        this.fileName = fileName;
+    }
+
+        public Logbook(string fileName)
         {
-            //fileOperations = fileOp;
-
-            // Get the directory of the solution file
-            directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            this.fileName = fileName;
+            this.directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
         }
-
         public void Log(string fileName, string entry = null) //outdated
         {
 
@@ -72,6 +77,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         public IEnumerable<string> ReadLog(string fileName)
         {
+            new FileOperations <string> = new FileOperations();
             string filePath = Path.Combine(directoryPath, fileName);
             return fileOperations.ReadFileLines(filePath);
         }
@@ -132,7 +138,7 @@ namespace ShapeshifterStudioPaymentCalculator
                                 decimal percentage = (decimal)points / amountOfUSDAvailable * 100;
 
                                 // Format the record for BreakDown.txt
-                                string record = $"{instructorName}, DCID {Instructor(InstructorName).DCID} {points} PTS, {percentage:F2}%, ${percentage / 100 * amountOfUSDAvailable:F2}";
+                                string record = $"{instructorName}, DCID {"DCID NULL"} {points} PTS, {percentage:F2}%, ${percentage / 100 * amountOfUSDAvailable:F2}";
 
                                 // Add the record to the processed records list
                                 processedRecords.Add(record);
@@ -153,7 +159,5 @@ namespace ShapeshifterStudioPaymentCalculator
             return processedRecords;
 
         }
-
-
     }
 }

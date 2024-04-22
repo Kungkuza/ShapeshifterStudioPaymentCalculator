@@ -51,7 +51,7 @@ namespace ShapeshifterStudioPaymentCalculator
             string pointsawarded = PtsAmountTxtbox.Text;
             pointsawarded += " PTS";
 
-            Logbook logbook = new Logbook();
+            Logbook logbook = new Logbook("PointsLog.txt");
 
             logbook.Log(Pointsfile, $"{selectedDate},{whichInstructor},{typeofAction},{pointsawarded}");
 

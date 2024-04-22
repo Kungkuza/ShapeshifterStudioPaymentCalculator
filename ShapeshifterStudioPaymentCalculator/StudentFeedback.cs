@@ -40,7 +40,8 @@ namespace ShapeshifterStudioPaymentCalculator
             string currentTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
 
             InstructorNamecomboBox.DataSource = Program.instructors;
-            Logbook logbook = new Logbook();
+            Logbook logbook = new Logbook(Pointsfile);
+
             Program.students.Add(new Student(StudentName, StudentDiscord));
 
             logbook.Log(Pointsfile, $"{currentTime}, {InstructorName}, {StudentName}, {StudentFeedback}, {StudentPoints}");

@@ -30,7 +30,8 @@ namespace ShapeshifterStudioPaymentCalculator
             string USDAvail = AvailUSDTxtBox.Text;
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
-            Logbook logbook = new Logbook();
+            Logbook logbook = new Logbook("PointsLog.txt");
+
             string breakdownFilePath = Path.Combine(logbook.DirectoryPath, "BreakDown.txt");
 
             //Logbook.Get

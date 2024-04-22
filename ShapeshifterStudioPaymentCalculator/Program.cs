@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -8,15 +9,15 @@ namespace ShapeshifterStudioPaymentCalculator
 
     internal static class Program
     {
-        // Declare Logbook instances
-        public static Logbook instructorLogbook;
-        public static Logbook pointsLogbook;
-        public static Logbook studentsLogbook;
+        //public static FileOperations ReadF = FileOperations();
+      
 
 
         // Declare list of instructors
         public static IList<Instructor> instructors = new List<Instructor>();
         public static IList<Student> students = new List<Student>();
+
+
 
         /// <summary>
         /// The main entry point for the application.
@@ -24,15 +25,19 @@ namespace ShapeshifterStudioPaymentCalculator
         [STAThread]
         static void Main()
         {
-            // Initialize Logbook instances
-            instructorLogbook = new Logbook("Instructors.txt");
-            pointsLogbook = new Logbook("PointsLog.txt");
-            studentsLogbook = new Logbook("Students.txt");
+            // Initialize file operations and directory path
+            IFileOperations fileOperations = new FileOperations();
+            string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            // Create Logbook instances
+            Logbook instructorLogbook = new Logbook(fileOperations, directoryPath, "Instructors.txt");
+            Logbook pointsLogbook = new Logbook(fileOperations, directoryPath, "PointsLog.txt");
+            Logbook studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
 
             // Read lines from the "Instructors.txt" file and initialize the list of instructors
             InitializeInstructors();
             InitializeStudents(studentsLogbook, "Students.txt");
-            //Init Students
+
 
             // Run the application
             Application.EnableVisualStyles();
@@ -44,6 +49,9 @@ namespace ShapeshifterStudioPaymentCalculator
         private static void InitializeInstructors()
         {
             // Read lines from "Instructors.txt" file
+            var fileOperations = new FileOperations();
+
+            //IFileOperations fileOperations = new FileOperations();
             IEnumerable<string> instructorLines = instructorLogbook.ReadLog("Instructors.txt");
 
             // Parse lines and initialize the list of instructors
