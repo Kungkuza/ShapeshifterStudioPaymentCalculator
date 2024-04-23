@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace ShapeshifterStudioPaymentCalculator
@@ -10,18 +11,16 @@ namespace ShapeshifterStudioPaymentCalculator
     internal static class Program
     {
         //public static FileOperations ReadF = FileOperations();
-      
-
+        public static Logbook instructorLogbook;
+        public static Logbook studentsLogbook;
+        public static Logbook pointsLogbook;
 
         // Declare list of instructors
         public static IList<Instructor> instructors = new List<Instructor>();
         public static IList<Student> students = new List<Student>();
 
-
-
-        /// <summary>
         /// The main entry point for the application.
-        /// </summary>
+
         [STAThread]
         static void Main()
         {
@@ -35,7 +34,7 @@ namespace ShapeshifterStudioPaymentCalculator
             Logbook studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
 
             // Read lines from the "Instructors.txt" file and initialize the list of instructors
-            InitializeInstructors();
+            InitializeInstructors(instructorLogbook);
             InitializeStudents(studentsLogbook, "Students.txt");
 
 
@@ -46,7 +45,7 @@ namespace ShapeshifterStudioPaymentCalculator
         }
 
         // Method to initialize the list of instructors from "Instructors.txt" file
-        private static void InitializeInstructors()
+        private static void InitializeInstructors(Logbook instructorLogbook)
         {
             // Read lines from "Instructors.txt" file
             var fileOperations = new FileOperations();
@@ -64,14 +63,21 @@ namespace ShapeshifterStudioPaymentCalculator
                     string name = parts[0].Trim();
                     string dcid = parts[1].Trim();
                     instructors.Add(new Instructor(name, dcid));
+                    
                 }
                 // Add error handling if needed for invalid lines
+                else
+                {
+
+                }
             }
         }
-        static IList<Student> InitializeStudents(Logbook logbook, string fileName)
+        static IList<Student> InitializeStudents(Logbook studentsLogbook, string fileName)
         {
             // Read lines from the specified file
-            IEnumerable<string> studentLines = logbook.ReadLog(fileName);
+            var fileOperations = new FileOperations();
+
+            IEnumerable<string> studentLines = studentsLogbook.ReadLog(fileName);
 
             // Parse lines and initialize student list
             foreach (string line in studentLines)

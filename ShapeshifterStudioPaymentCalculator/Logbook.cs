@@ -12,6 +12,9 @@ namespace ShapeshifterStudioPaymentCalculator
     public interface IFileOperations
     {
         void AppendToFile(string fileName, string data);
+
+
+
         IEnumerable<string> ReadFileLines(string fileName);
     }
 
@@ -27,6 +30,19 @@ namespace ShapeshifterStudioPaymentCalculator
 
         public IEnumerable<string> ReadFileLines(string fileName)
         {
+            // Get the current directory of the executing assembly
+            string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            // Navigate back three directories
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
+
+            // Combine the current directory with the specified file name
+            string filePath = Path.Combine(directoryPath, fileName);
+
+            // Read and return the lines from the file
             return File.ReadLines(fileName);
         }
     }
@@ -42,18 +58,33 @@ namespace ShapeshifterStudioPaymentCalculator
         private string fileName { get; set; }
 
 
-        //Constructors
-        public Logbook(IFileOperations fileOperations, string directoryPath, string fileName)
+    //Constructors
+    public Logbook(IFileOperations fileOperations, string directoryPath, string fileName)
     {
         this.fileOperations = fileOperations;
         this.directoryPath = directoryPath;
         this.fileName = fileName;
-    }
+
+            directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            // Navigate back three directories
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
+        }
 
         public Logbook(string fileName)
         {
             this.fileName = fileName;
             this.directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            // Navigate back three directories
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
+
         }
         public void Log(string fileName, string entry = null) //outdated
         {
@@ -77,8 +108,14 @@ namespace ShapeshifterStudioPaymentCalculator
 
         public IEnumerable<string> ReadLog(string fileName)
         {
-            new FileOperations <string> = new FileOperations();
+            fileOperations = new FileOperations();
+            
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
             string filePath = Path.Combine(directoryPath, fileName);
+
             return fileOperations.ReadFileLines(filePath);
         }
 
@@ -109,7 +146,6 @@ namespace ShapeshifterStudioPaymentCalculator
             string pointsLogFilePath = Path.Combine(directoryPath, pointsLogFileName);
             string breakdownFilePath = Path.Combine(directoryPath, breakdownFileName);
             List<string> processedRecords = new List<string>();
-
 
             try
             {

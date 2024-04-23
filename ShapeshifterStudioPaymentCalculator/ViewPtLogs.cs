@@ -17,8 +17,12 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             InitializeComponent();
             string FileReadoutRTB = FileReadoutrichTextBox.Text;
-
-            string filePath = "PointsLog.txt";
+            string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
+            string filePath = Path.Combine(directoryPath, "");
             string fileContents = File.ReadAllText(filePath);
 
             // Set the text of the RichTextBox to display the file contents

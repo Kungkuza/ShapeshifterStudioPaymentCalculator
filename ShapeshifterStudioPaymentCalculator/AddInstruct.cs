@@ -29,6 +29,7 @@ namespace ShapeshifterStudioPaymentCalculator
             string NewInstName = NewInstNameTxtbox.Text;
 
             string AddInstructDCID = InstructDCIDTxtbox.Text;
+            Logbook instructorLogbook = Program.instructorLogbook;
 
             Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
             Program.instructors.Add(newInstructor);
@@ -36,7 +37,9 @@ namespace ShapeshifterStudioPaymentCalculator
             //Add instructor to file Instructors.txt
             string logData = $"{NewInstName} + {AddInstructDCID}";
             //In the format of Name then DCID
-            Program.instructorLogbook.Log("Instructor.txt", logData);
+            var fileOperations = new FileOperations();
+
+            instructorLogbook.Log("Instructor.txt", logData);
 
         }
 

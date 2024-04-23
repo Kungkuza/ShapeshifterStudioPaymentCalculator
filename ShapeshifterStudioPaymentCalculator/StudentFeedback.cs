@@ -16,6 +16,10 @@ namespace ShapeshifterStudioPaymentCalculator
         public Feedback()
         {
             InitializeComponent();
+            InstructorNamecomboBox.DataSource = Program.instructors;
+            InstructorNamecomboBox.DisplayMember = "Name";
+            InstructorNamecomboBox.ValueMember = "DCID";
+            InstructorNamecomboBox.Refresh();
         }
 
         private void BkFromStdntFdbk_Click(object sender, EventArgs e)
@@ -30,9 +34,11 @@ namespace ShapeshifterStudioPaymentCalculator
             string StudentName = StudentNameTxtBox.Text;
             string StudentFeedback = StudentFeedBkRTxtBox.Text;
             string StudentPoints = StudentPointModifier.Text;
-            string InstructorName = InstructorNamecomboBox.SelectedItem.ToString();
+            Instructor selectedInstructor = (Instructor)InstructorNamecomboBox.SelectedItem;
             string StudentDiscord = StudentDCIDTxtBox.Text;
             StudentPoints += "PTS";
+
+            InstructorNamecomboBox.Refresh();
 
             string Pointsfile = "PointsLog.txt";
             string Studentsfile = "Students.txt";
@@ -44,7 +50,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
             Program.students.Add(new Student(StudentName, StudentDiscord));
 
-            logbook.Log(Pointsfile, $"{currentTime}, {InstructorName}, {StudentName}, {StudentFeedback}, {StudentPoints}");
+            logbook.Log(Pointsfile, $"{currentTime}, {selectedInstructor}, {StudentName}, {StudentFeedback}, {StudentPoints}");
             logbook.Log(Studentsfile, $"{currentTime}, {StudentName}, {StudentFeedback}");
 
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string

@@ -19,6 +19,22 @@ namespace ShapeshifterStudioPaymentCalculator
         public AddPoints()
         {
             InitializeComponent();
+            WhichInstCombo.DataSource = Program.instructors;
+            WhichInstCombo.DisplayMember = "Name";
+            WhichInstCombo.ValueMember = "DCID";
+
+            IList<string> actions = new List<string>();
+            actions.Add("Lesson");
+            actions.Add("Assist Lesson");
+            actions.Add("Lesson Recording");
+            actions.Add("Lesson Planning");
+            actions.Add("Lesson Workshops");
+            actions.Add("TikToks/Socials Help");
+
+            TypeofActionCombo.DataSource = actions;
+            TypeofActionCombo.DisplayMember = "ToString";
+
+
         }
 
         private void BkFromAddPts_Click(object sender, EventArgs e)
@@ -30,22 +46,12 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void AddPtsSubmit_Click(object sender, EventArgs e)
         {
-            IList<string> actions = new List<string>();
-            actions.Add("Lesson");
-            actions.Add("Assist Lesson");
-            actions.Add("Lesson Recording");
-            actions.Add("Lesson Planning");
-            actions.Add("Lesson Workshops");
-            actions.Add("TikToks/Socials Help");
+            
             string Pointsfile = "PointsLog.txt";
 
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
-
-            //foreach
-
-            WhichInstCombo.DataSource = Program.instructors;
-            TypeofActionCombo.DataSource = actions;
+            Instructor selectedInstructor = (Instructor) WhichInstCombo.SelectedItem;   
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;
