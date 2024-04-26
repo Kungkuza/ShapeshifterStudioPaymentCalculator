@@ -22,11 +22,12 @@ namespace ShapeshifterStudioPaymentCalculator
             {
                 directoryPath = Path.GetDirectoryName(directoryPath);
             }
-            string filePath = Path.Combine(directoryPath, "");
+            string filePath = Path.Combine(directoryPath, "PointsLog.txt");
             string fileContents = File.ReadAllText(filePath);
 
             // Set the text of the RichTextBox to display the file contents
             FileReadoutrichTextBox.Text = fileContents;
+            Refresh();
         }
 
         private void BkFromViewPtLogs_Click(object sender, EventArgs e)
