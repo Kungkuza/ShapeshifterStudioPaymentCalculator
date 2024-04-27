@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace ShapeshifterStudioPaymentCalculator
@@ -39,9 +41,20 @@ namespace ShapeshifterStudioPaymentCalculator
             string PercentReadout = PaymentForTheMonthTxtBox.Text;
             Instructor selectedInstructor = (Instructor)CPayInstcomboBox.SelectedItem;
             string USDAvail = USDAvailtxtBox.Text;
+            string directoryPath;
+            string fileName = "PointsLog.txt";
+
+            
+            directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            // Navigate back three directories
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
 
             CPayInstcomboBox.Refresh();
-            string PointsLogName = "PointsLog.txt";
+            string PointsLogPath = Path.Combine(directoryPath, fileName);
 
             IFileOperations fileOperations = new FileOperations();
 
@@ -49,7 +62,7 @@ namespace ShapeshifterStudioPaymentCalculator
             Calculator Calc = new Calculator();
 
             // Now you can use the calculation instance
-            List <string> CalculatedList = Calc.GetInstructorRecords(PointsLogName, CPayInstructor);
+            List <string> CalculatedList = Calc.GetInstructorRecords(PointsLogPath, CPayInstructor);
         }
     }
 }

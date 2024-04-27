@@ -36,22 +36,21 @@ namespace ShapeshifterStudioPaymentCalculator
             string StudentPoints = StudentPointModifier.Text;
             Instructor selectedInstructor = (Instructor)InstructorNamecomboBox.SelectedItem;
             string StudentDiscord = StudentDCIDTxtBox.Text;
-            StudentPoints += "PTS";
 
             InstructorNamecomboBox.Refresh();
 
             string Pointsfile = "PointsLog.txt";
             string Studentsfile = "Students.txt";
 
-            string currentTime = DateTime.Now.ToString("MM/dd/yyyy HH:mm");
+            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
 
             InstructorNamecomboBox.DataSource = Program.instructors;
             Logbook logbook = new Logbook(Pointsfile);
 
             Program.students.Add(new Student(StudentName, StudentDiscord));
 
-            logbook.Log(Pointsfile, $"{currentTime}, {selectedInstructor}, {StudentName}, {StudentFeedback}, {StudentPoints}");
-            logbook.Log(Studentsfile, $"{currentTime}, {StudentName}, {StudentFeedback}");
+            logbook.Log(Pointsfile, $"{currentTime}, {selectedInstructor}, {StudentName}, {StudentPoints}, {StudentFeedback}");
+            logbook.Log(Studentsfile, $"{currentTime}, {StudentDiscord}, {StudentFeedback}");
 
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
 

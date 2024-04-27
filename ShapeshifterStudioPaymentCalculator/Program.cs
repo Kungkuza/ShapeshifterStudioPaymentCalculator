@@ -15,6 +15,7 @@ namespace ShapeshifterStudioPaymentCalculator
         public static Logbook studentsLogbook;
         public static Logbook pointsLogbook;
 
+
         // Declare list of instructors
         public static IList<Instructor> instructors = new List<Instructor>();
         public static IList<Student> students = new List<Student>();
@@ -29,9 +30,9 @@ namespace ShapeshifterStudioPaymentCalculator
             string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             // Create Logbook instances
-            Logbook instructorLogbook = new Logbook(fileOperations, directoryPath, "Instructors.txt");
-            Logbook pointsLogbook = new Logbook(fileOperations, directoryPath, "PointsLog.txt");
-            Logbook studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
+            Program.instructorLogbook = new Logbook(fileOperations, directoryPath, "Instructors.txt");
+            Program.pointsLogbook = new Logbook(fileOperations, directoryPath, "PointsLog.txt");
+            Program.studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
 
             // Read lines from the "Instructors.txt" file and initialize the list of instructors
             InitializeInstructors(instructorLogbook);

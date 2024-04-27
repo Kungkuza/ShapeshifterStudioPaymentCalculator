@@ -48,18 +48,21 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             
             string Pointsfile = "PointsLog.txt";
-
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
-            Instructor selectedInstructor = (Instructor) WhichInstCombo.SelectedItem;   
+            Instructor selectedInstructor = (Instructor) WhichInstCombo.SelectedItem;
+
+            string instructorName = selectedInstructor.Name;
+
 
             string typeofAction = TypeofActionCombo.SelectedItem.ToString();
             string pointsawarded = PtsAmountTxtbox.Text;
-            pointsawarded += " PTS";
+            string dateStr = selectedDate.ToString("MM/dd/yyyy");
+
 
             Logbook logbook = new Logbook("PointsLog.txt");
 
-            logbook.Log(Pointsfile, $"{selectedDate},{whichInstructor},{typeofAction},{pointsawarded}");
+            logbook.Log(Pointsfile, $"{dateStr},{instructorName},{typeofAction},{pointsawarded}");
 
         }
     }

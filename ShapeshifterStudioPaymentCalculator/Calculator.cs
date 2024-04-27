@@ -11,8 +11,8 @@ namespace ShapeshifterStudioPaymentCalculator
     internal class Calculator
     {
         //This class controls calculations for singular instructors
-        protected int dollarAmountAvailUSD {  get; set; }
-        protected int rollingMonthsNum {  get; set; }
+        protected int dollarAmountAvailUSD { get; set; }
+        protected int rollingMonthsNum { get; set; }
 
         //setamountavailable
         //getamountavailable
@@ -33,14 +33,15 @@ namespace ShapeshifterStudioPaymentCalculator
             {
                 string[] lines = File.ReadAllLines(pointsLogFilePath);
 
+                // First pass: Calculate total points for the specified instructor within the last 6 months
                 foreach (string line in lines)
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length >= 3)
+                    if (parts.Length >= 4)
                     {
-                        string recordInstructorName = parts[0].Trim();
-                        int points = int.Parse(parts[1].Trim());
-                        DateTime date = DateTime.ParseExact(parts[2].Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        string recordInstructorName = parts[1].Trim();
+                        int points = int.Parse(parts[3].Trim());
+                        DateTime date = DateTime.ParseExact(parts[0].Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
                         if (recordInstructorName == instructorName && date >= DateTime.Now.AddMonths(-6))
                         {
@@ -49,19 +50,28 @@ namespace ShapeshifterStudioPaymentCalculator
                     }
                 }
 
+                // Second pass: Generate records for the specified instructor within the last 6 months
                 foreach (string line in lines)
                 {
                     string[] parts = line.Split(',');
-                    if (parts.Length >= 3)
+                    if (parts.Length >= 4)
                     {
-                        string recordInstructorName = parts[0].Trim();
-                        int points = int.Parse(parts[1].Trim());
-                        DateTime date = DateTime.ParseExact(parts[2].Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
+                        string recordInstructorName = parts[1].Trim();
+                        int points = int.Parse(parts[3].Trim());
+                        DateTime date = DateTime.ParseExact(parts[0].Trim(), "MM/dd/yyyy", CultureInfo.InvariantCulture);
 
                         if (recordInstructorName == instructorName && date >= DateTime.Now.AddMonths(-6))
                         {
+                            // Calculate percentage of points
                             decimal percentage = (decimal)points / totalPoints * 100;
-                            string record = $"{recordInstructorName}, DCID {"null"} {points} PTS, {percentage:F2}%";
+
+                            // Get the DCID of the instructor (assuming you have a list of instructors)
+                            string dcid = Program.instructors.FirstOrDefault(i => i.Name == instructorName)?.DCID ?? "null";
+
+                            // Format the record string
+                            string record = $"{recordInstructorName}, DCID {dcid} {points} PTS, {percentage:F2}%";
+
+                            // Add the record to the list
                             instructorRecords.Add(record);
                         }
                     }
@@ -75,6 +85,4 @@ namespace ShapeshifterStudioPaymentCalculator
             return instructorRecords;
         }
     }
-
-
 }

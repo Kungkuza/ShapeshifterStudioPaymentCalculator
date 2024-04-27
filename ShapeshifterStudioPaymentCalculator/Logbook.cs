@@ -88,22 +88,17 @@ namespace ShapeshifterStudioPaymentCalculator
         }
         public void Log(string fileName, string entry = null) //outdated
         {
+            if (fileOperations == null)
+            {
+                fileOperations = new FileOperations();
+            }
 
             string filePath = Path.Combine(directoryPath, fileName);
 
-            string currentDate = DateTime.Now.ToString("MM/dd/yyyy HH:mm"); //invalid, work on it
+            //string currentDate = DateTime.Now.ToString("MM/dd/yyyy"); //invalid, work on it
 
-            // Concatenate the current date and time with the entry
-            string newData = $"{entry}, {currentDate}";
-            if (fileName == "PointsLog.txt")
-            {
-                entry = newData;
-            }
-            else
-            {
-                //Add data to file
-                fileOperations.AppendToFile(filePath, entry);
-            }
+            fileOperations.AppendToFile(filePath, entry);
+        
         }
 
         public IEnumerable<string> ReadLog(string fileName)
