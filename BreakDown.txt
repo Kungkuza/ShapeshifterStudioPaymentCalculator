@@ -1,0 +1,6 @@
+Instructor, Points, Percentage, Pay this month
+Instructor: Cohdee, Points: 15, Percentage: 5.26%, Pay this month: 5.26
+Instructor: daveee, Points: 160, Percentage: 56.14%, Pay this month: 56.14
+Instructor: Honkeyz, Points: 8, Percentage: 2.81%, Pay this month: 2.81
+Instructor: MNB, Points: 62, Percentage: 21.75%, Pay this month: 21.75
+Instructor: ShapeshifterStudioPaymentCalculator.Instructor, Points: 40, Percentage: 14.04%, Pay this month: 14.04

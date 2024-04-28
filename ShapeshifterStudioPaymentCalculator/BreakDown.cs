@@ -31,10 +31,21 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
             Logbook logbook = new Logbook("PointsLog.txt");
+            string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            for (int i = 0; i < 3; i++)
+            {
+                directoryPath = Path.GetDirectoryName(directoryPath);
+            }
+            string filePath = Path.Combine(directoryPath, "PointsLog.txt");
+            string breakdownFilePath = Path.Combine(directoryPath, "BreakDown.txt");
+            decimal usdAmount = decimal.Parse(AvailUSDTxtBox.Text.Replace(",", ""));
 
-            string breakdownFilePath = Path.Combine(logbook.DirectoryPath, "BreakDown.txt");
 
-            //Logbook.Get
+            // Create an instance of the Calculation class
+            Calculation calculation = new Calculation(new FileOperations());
+
+            // Call the CalculateInstructorPercentages method
+            calculation.CalculateInstructorPercentages("PointsLog.txt", monthOfPayout, usdAmount);
 
             try
             {
@@ -43,6 +54,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
                 // Set the text of the RichTextBox to the contents of the BreakDown.txt file
                 OwedAmountALLInstructorsRTB.Text = string.Join(Environment.NewLine, lines);
+                Refresh();
             }
             catch (Exception ex)
             {

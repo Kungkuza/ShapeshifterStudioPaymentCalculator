@@ -33,8 +33,6 @@ namespace ShapeshifterStudioPaymentCalculator
 
             TypeofActionCombo.DataSource = actions;
             TypeofActionCombo.DisplayMember = "ToString";
-
-
         }
 
         private void BkFromAddPts_Click(object sender, EventArgs e)
@@ -62,7 +60,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
             Logbook logbook = new Logbook("PointsLog.txt");
 
-            logbook.Log(Pointsfile, $"{dateStr},{instructorName},{typeofAction},{pointsawarded}");
+            logbook.Log(Pointsfile, $"{dateStr}, {instructorName}, {typeofAction}, {pointsawarded}");
 
         }
     }

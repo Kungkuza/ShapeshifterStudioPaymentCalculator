@@ -19,7 +19,7 @@ namespace ShapeshifterStudioPaymentCalculator
             InstructorNamecomboBox.DataSource = Program.instructors;
             InstructorNamecomboBox.DisplayMember = "Name";
             InstructorNamecomboBox.ValueMember = "DCID";
-            InstructorNamecomboBox.Refresh();
+            //InstructorNamecomboBox.Refresh();
         }
 
         private void BkFromStdntFdbk_Click(object sender, EventArgs e)
@@ -33,25 +33,23 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             string StudentName = StudentNameTxtBox.Text;
             string StudentFeedback = StudentFeedBkRTxtBox.Text;
+            DateTime FeedbackDate = FeedBkCalendar.SelectionStart;
             string StudentPoints = StudentPointModifier.Text;
-            Instructor selectedInstructor = (Instructor)InstructorNamecomboBox.SelectedItem;
+            Instructor selectedInstructor = (Instructor) InstructorNamecomboBox.SelectedItem;
             string StudentDiscord = StudentDCIDTxtBox.Text;
-
-            InstructorNamecomboBox.Refresh();
 
             string Pointsfile = "PointsLog.txt";
             string Studentsfile = "Students.txt";
+            string formattedDate = FeedbackDate.ToString("MM/dd/yyyy");
 
-            string currentTime = DateTime.Now.ToString("MM/dd/yyyy");
-
-            InstructorNamecomboBox.DataSource = Program.instructors;
             Logbook logbook = new Logbook(Pointsfile);
+            string instructorName = selectedInstructor.Name;
 
             Program.students.Add(new Student(StudentName, StudentDiscord));
 
-            logbook.Log(Pointsfile, $"{currentTime}, {selectedInstructor}, {StudentName}, {StudentPoints}, {StudentFeedback}");
-            logbook.Log(Studentsfile, $"{currentTime}, {StudentDiscord}, {StudentFeedback}");
-
+            logbook.Log(Pointsfile, $"{formattedDate}, {instructorName}, {StudentDiscord}, {StudentPoints}, {StudentFeedback}");
+            logbook.Log(Studentsfile, $"{formattedDate}, {StudentDiscord}, {StudentFeedback}");
+            //InstructorNamecomboBox.Refresh();
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
 
 

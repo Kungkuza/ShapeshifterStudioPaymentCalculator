@@ -19,17 +19,21 @@ namespace ShapeshifterStudioPaymentCalculator
 
             // Get the directory of the solution file
             _directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+            for (int i = 0; i < 3; i++)
+            {
+                _directoryPath = Path.GetDirectoryName(_directoryPath);
+            }
         }
 
-        public void CalculateInstructorPercentages(string fileName)
+        public void CalculateInstructorPercentages(string fileName, DateTime selectedDate, decimal USDPay)
         {
             string filePath = Path.Combine(_directoryPath, fileName);
 
             // Get the current date
-            DateTime currentDate = DateTime.Now;
+            //DateTime currentDate = selectedDate.Now;
 
             // Calculate the date 6 months ago
-            DateTime sixMonthsAgo = currentDate.AddMonths(-6);
+            DateTime sixMonthsAgo = selectedDate.AddMonths(-6);
 
             // Read all lines from the log file
             IEnumerable<string> logEntries = _fileOperations.ReadFileLines(filePath);
@@ -44,10 +48,10 @@ namespace ShapeshifterStudioPaymentCalculator
             // Parse each log entry to extract instructor and points
             foreach (string entry in entriesWithinPeriod)
             {
-                // Example entry format: "02/28/2024 13:45 - Instructor: Ruby, 89 PTS"
+                // Example entry format: "02/28/2024, Ruby, Otherfield, 89"
                 string[] parts = entry.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
-                string instructor = parts[1].Substring("Instructor:".Length).Trim();
-                int points = int.Parse(parts[2].Split(',')[0]);
+                string instructor = parts[1].Trim();
+                int points = int.Parse(parts[3].Trim());
 
                 // Update points for the instructor
                 if (pointsByInstructor.ContainsKey(instructor))
@@ -62,15 +66,20 @@ namespace ShapeshifterStudioPaymentCalculator
 
             // Calculate the total points contributed in the 6-month period
             int totalPoints = pointsByInstructor.Values.Sum();
-
-            // Calculate and print the percentage of points contributed by each instructor
-            foreach (var kvp in pointsByInstructor)
+            string textfile = "BreakDown.txt";
+            // Write the records to the breakdown file
+            Logbook BDLogbook = new Logbook(textfile);
             {
-                string instructor = kvp.Key;
-                int points = kvp.Value;
-                double percentage = (double)points / totalPoints * 100;
+                // Write each record
+                foreach (var kvp in pointsByInstructor)
+                {
+                    string instructor = kvp.Key;
+                    int points = kvp.Value;
+                    double percentage = (double)points / totalPoints * 100;
+                    decimal payThisMonth = USDPay * (decimal)percentage / 100;
 
-                Console.WriteLine($"Instructor: {instructor}, Points: {points}, Percentage: {percentage:F2}%");
+                    BDLogbook.Log(textfile, $"Instructor: {instructor}, Points: {points}, Percentage: {percentage:F2}%, Pay this month: {payThisMonth:F2}");
+                }
             }
         }
 
