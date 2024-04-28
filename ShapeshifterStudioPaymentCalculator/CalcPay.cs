@@ -37,14 +37,14 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
             string CPayInstructor = CPayInstcomboBox.Text;
-            string PaymenyReadout = PaymentForTheMonthTxtBox.Text;
-            string PercentReadout = PaymentForTheMonthTxtBox.Text;
+            
             Instructor selectedInstructor = (Instructor)CPayInstcomboBox.SelectedItem;
             string USDAvail = USDAvailtxtBox.Text;
             string directoryPath;
             string fileName = "PointsLog.txt";
+            string BDFileName = "BreakDown.txt";
+            decimal usdAmount = decimal.Parse(USDAvailtxtBox.Text.Replace(",", ""));
 
-            
             directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             // Navigate back three directories
@@ -55,14 +55,36 @@ namespace ShapeshifterStudioPaymentCalculator
 
             CPayInstcomboBox.Refresh();
             string PointsLogPath = Path.Combine(directoryPath, fileName);
-
+            string BDTextPath = Path.Combine(directoryPath, BDFileName);
             IFileOperations fileOperations = new FileOperations();
 
             // Create an instance of Calculation by passing the fileOperations instance
-            Calculator Calc = new Calculator();
+           
+            Calculator calcu = new Calculator();
+            if (File.Exists(BDTextPath) && new FileInfo(BDTextPath).Length > 0)
+            {
+                // Clear the file contents
+                File.WriteAllText(BDTextPath, string.Empty);
+            }
 
+
+            calcu.GetInstructorRecords("PointsLog.txt", CalcPayTime, usdAmount, CPayInstructor);
+            
+            try
+            {
+                // Read all lines from the BreakDown.txt file
+                string[] lines = File.ReadAllLines(BDTextPath);
+
+                // Set the text of the RichTextBox to the contents of the BreakDown.txt file
+                CalcPayRTB.Text = string.Join(Environment.NewLine, lines);
+                Refresh();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Error displaying BreakDown.txt contents: {ex.Message}");
+            }
             // Now you can use the calculation instance
-            List <string> CalculatedList = Calc.GetInstructorRecords(PointsLogPath, CPayInstructor);
+            //"PointsLog.txt" , CalcPayTime, usdAmount, CPayInstructor
         }
     }
 }

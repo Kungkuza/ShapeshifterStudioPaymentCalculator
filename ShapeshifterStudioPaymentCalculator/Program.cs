@@ -64,7 +64,7 @@ namespace ShapeshifterStudioPaymentCalculator
                     string name = parts[0].Trim();
                     string dcid = parts[1].Trim();
                     instructors.Add(new Instructor(name, dcid));
-                    
+
                 }
                 // Add error handling if needed for invalid lines
                 else

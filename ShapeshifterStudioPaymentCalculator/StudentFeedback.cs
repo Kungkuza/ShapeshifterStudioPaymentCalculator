@@ -51,10 +51,6 @@ namespace ShapeshifterStudioPaymentCalculator
             logbook.Log(Studentsfile, $"{formattedDate}, {StudentDiscord}, {StudentFeedback}");
             //InstructorNamecomboBox.Refresh();
             //Interacts with the Pointslog text file, feedback goes on the back ofeach string
-
-
-
-
         }
     }
 }

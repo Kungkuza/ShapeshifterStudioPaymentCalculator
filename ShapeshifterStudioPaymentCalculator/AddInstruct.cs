@@ -57,7 +57,6 @@ namespace ShapeshifterStudioPaymentCalculator
 
             var LBook = Program.instructorLogbook;
             LBook.RemoveEntry("Instructors.txt", RmDCID);
-
         }
     }
 }

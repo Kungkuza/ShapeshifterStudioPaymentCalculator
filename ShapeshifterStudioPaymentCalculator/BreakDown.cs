@@ -27,11 +27,11 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void SubmitUSDBtn_Click(object sender, EventArgs e)
         {
-            string USDAvail = AvailUSDTxtBox.Text;
             DateTime monthOfPayout = BreakdownPaymentmonthCalendar.SelectionStart;
             string DisplayRTB = OwedAmountALLInstructorsRTB.Text;
             Logbook logbook = new Logbook("PointsLog.txt");
             string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
             for (int i = 0; i < 3; i++)
             {
                 directoryPath = Path.GetDirectoryName(directoryPath);
@@ -44,6 +44,11 @@ namespace ShapeshifterStudioPaymentCalculator
             // Create an instance of the Calculation class
             Calculation calculation = new Calculation(new FileOperations());
 
+            if (File.Exists(breakdownFilePath) && new FileInfo(breakdownFilePath).Length > 0)
+            {
+                // Clear the file contents
+                File.WriteAllText(breakdownFilePath, string.Empty);
+            }
             // Call the CalculateInstructorPercentages method
             calculation.CalculateInstructorPercentages("PointsLog.txt", monthOfPayout, usdAmount);
 
@@ -60,8 +65,6 @@ namespace ShapeshifterStudioPaymentCalculator
             {
                 Console.WriteLine($"Error displaying BreakDown.txt contents: {ex.Message}");
             }
-
-
         }
     }
 }

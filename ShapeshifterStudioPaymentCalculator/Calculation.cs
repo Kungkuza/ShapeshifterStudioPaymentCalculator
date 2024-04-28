@@ -10,12 +10,12 @@ namespace ShapeshifterStudioPaymentCalculator
     //This class controls calculations for all instructors aka breakdown
     internal class Calculation
     {
-        private readonly IFileOperations _fileOperations;
+        public IFileOperations fileOperations;
         private readonly string _directoryPath;
 
         public Calculation(IFileOperations fileOperations)
         {
-            _fileOperations = fileOperations;
+            this.fileOperations = fileOperations;
 
             // Get the directory of the solution file
             _directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
@@ -23,6 +23,16 @@ namespace ShapeshifterStudioPaymentCalculator
             {
                 _directoryPath = Path.GetDirectoryName(_directoryPath);
             }
+        }
+
+        public IFileOperations GetFileOperations()
+        {
+            return fileOperations;
+        }
+        public IEnumerable<string> ReadFileLines(string fileName)
+        {
+            string filePath = Path.Combine(_directoryPath, fileName);
+            return fileOperations.ReadFileLines(filePath);
         }
 
         public void CalculateInstructorPercentages(string fileName, DateTime selectedDate, decimal USDPay)
@@ -36,7 +46,7 @@ namespace ShapeshifterStudioPaymentCalculator
             DateTime sixMonthsAgo = selectedDate.AddMonths(-6);
 
             // Read all lines from the log file
-            IEnumerable<string> logEntries = _fileOperations.ReadFileLines(filePath);
+            IEnumerable<string> logEntries = fileOperations.ReadFileLines(filePath);
 
             // Filter log entries within the rolling 6-month period
             IEnumerable<string> entriesWithinPeriod = logEntries
@@ -71,19 +81,19 @@ namespace ShapeshifterStudioPaymentCalculator
             Logbook BDLogbook = new Logbook(textfile);
             {
                 // Write each record
-                foreach (var kvp in pointsByInstructor)
-                {
-                    string instructor = kvp.Key;
-                    int points = kvp.Value;
-                    double percentage = (double)points / totalPoints * 100;
-                    decimal payThisMonth = USDPay * (decimal)percentage / 100;
+                    foreach (var kvp in pointsByInstructor)
+                    {
+                        string instructor = kvp.Key;
+                        int points = kvp.Value;
+                        double percentage = (double)points / totalPoints * 100;
+                        decimal payThisMonth = USDPay * (decimal)percentage / 100;
 
-                    BDLogbook.Log(textfile, $"Instructor: {instructor}, Points: {points}, Percentage: {percentage:F2}%, Pay this month: {payThisMonth:F2}");
-                }
+                        BDLogbook.Log(textfile, $"Instructor: {instructor}, Points: {points}, Percentage: {percentage:F2}%, Pay this month: {payThisMonth:F2}");
+                    }
             }
         }
 
-        private bool IsWithinSixMonths(string entry, DateTime sixMonthsAgo)
+        public bool IsWithinSixMonths(string entry, DateTime sixMonthsAgo)
         {
             // Example entry format: "02/28/2024 13:45 - Instructor: Ruby, 89 PTS"
             string[] parts = entry.Split(',').Select(p => p.Trim()).ToArray();
