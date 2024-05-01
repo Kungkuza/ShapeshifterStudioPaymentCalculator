@@ -18,16 +18,5 @@ namespace ShapeshifterStudioPaymentCalculator
         {
             
         }
-
-        //Methods
-        protected void UpdateInstructorPoints()
-        {
-
-        }
-
-        //initialize instructorsFromFile
-
-
-
     }
 }

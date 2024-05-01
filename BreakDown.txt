@@ -1,3 +1,0 @@
-Instructor, Points, Percentage, Pay this month
-Instructor, Points, Percentage, Pay this month
-Instructor: daveee, Points: 160, Percentage: 65.31%, Pay this month: 65.31

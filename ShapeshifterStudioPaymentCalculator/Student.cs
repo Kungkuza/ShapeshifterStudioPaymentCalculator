@@ -19,8 +19,6 @@ namespace ShapeshifterStudioPaymentCalculator
 
         public Student(string name, string discordID) : base(name, discordID)
         {
-            //string FeedBack = feedBack;
-            //int PointsGiven = pointsGiven;
             string Name = name;
             string DiscordID = discordID;
         }
