@@ -46,36 +46,36 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Calculation.cs" />
-    <Compile Include="Calculator.cs" />
-    <Compile Include="ViewPtLogs.cs">
+    <Compile Include="Calculate\Calculation.cs" />
+    <Compile Include="Calculate\Calculator.cs" />
+    <Compile Include="AddLogs\ViewPtLogs.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="ViewPtLogs.Designer.cs">
+    <Compile Include="AddLogs\ViewPtLogs.Designer.cs">
       <DependentUpon>ViewPtLogs.cs</DependentUpon>
     </Compile>
-    <Compile Include="BreakDown.cs">
+    <Compile Include="Calculate\BreakDown.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BreakDown.Designer.cs">
+    <Compile Include="Calculate\BreakDown.Designer.cs">
       <DependentUpon>BreakDown.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddInstruct.cs">
+    <Compile Include="AddLogs\AddInstruct.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddInstruct.Designer.cs">
+    <Compile Include="AddLogs\AddInstruct.Designer.cs">
       <DependentUpon>AddInstruct.cs</DependentUpon>
     </Compile>
-    <Compile Include="CalcPay.cs">
+    <Compile Include="Calculate\CalcPay.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CalcPay.Designer.cs">
+    <Compile Include="Calculate\CalcPay.Designer.cs">
       <DependentUpon>CalcPay.cs</DependentUpon>
     </Compile>
-    <Compile Include="AddPoints.cs">
+    <Compile Include="AddLogs\AddPoints.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AddPoints.Designer.cs">
+    <Compile Include="AddLogs\AddPoints.Designer.cs">
       <DependentUpon>AddPoints.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
@@ -84,28 +84,28 @@
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
-    <Compile Include="StudentFeedback.cs">
+    <Compile Include="AddLogs\StudentFeedback.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="StudentFeedback.Designer.cs">
+    <Compile Include="AddLogs\StudentFeedback.Designer.cs">
       <DependentUpon>StudentFeedback.cs</DependentUpon>
     </Compile>
-    <Compile Include="Individual.cs" />
-    <Compile Include="Instructor.cs" />
-    <Compile Include="Logbook.cs" />
+    <Compile Include="People\Individual.cs" />
+    <Compile Include="People\Instructor.cs" />
+    <Compile Include="AddLogs\Logbook.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student.cs" />
-    <EmbeddedResource Include="AddInstruct.resx">
+    <Compile Include="People\Student.cs" />
+    <EmbeddedResource Include="AddLogs\AddInstruct.resx">
       <DependentUpon>AddInstruct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AddPoints.resx">
+    <EmbeddedResource Include="AddLogs\AddPoints.resx">
       <DependentUpon>AddPoints.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BreakDown.resx">
+    <EmbeddedResource Include="Calculate\BreakDown.resx">
       <DependentUpon>BreakDown.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CalcPay.resx">
+    <EmbeddedResource Include="Calculate\CalcPay.resx">
       <DependentUpon>CalcPay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
@@ -120,10 +120,10 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="StudentFeedback.resx">
+    <EmbeddedResource Include="AddLogs\StudentFeedback.resx">
       <DependentUpon>StudentFeedback.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="ViewPtLogs.resx">
+    <EmbeddedResource Include="AddLogs\ViewPtLogs.resx">
       <DependentUpon>ViewPtLogs.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -139,10 +139,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AddLogs\" />
-    <Folder Include="Calculate\" />
-    <Folder Include="People\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
