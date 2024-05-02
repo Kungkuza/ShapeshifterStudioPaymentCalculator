@@ -35,17 +35,17 @@ namespace ShapeshifterStudioPaymentCalculator
             Program.instructors.Add(newInstructor);
 
             //Add instructor to file Instructors.txt
-            string logData = $"{NewInstName} + {AddInstructDCID}";
+            string logData = $"{NewInstName}, {AddInstructDCID}";
             //In the format of Name then DCID
             var fileOperations = new FileOperations();
 
-            instructorLogbook.Log("Instructor.txt", logData);
+            instructorLogbook.Log("Instructors.txt", logData);
 
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
         {
-            string RmDCID = RmInstrSubmit.Text;
+            string RmDCID = RmInstrTxtbox.Text;
 
             foreach (Instructor instructor in Program.instructors.ToList())
             {

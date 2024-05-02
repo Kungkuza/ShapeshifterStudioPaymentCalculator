@@ -142,6 +142,7 @@
   <ItemGroup>
     <Folder Include="AddLogs\" />
     <Folder Include="Calculate\" />
+    <Folder Include="People\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
