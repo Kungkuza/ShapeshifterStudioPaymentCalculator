@@ -15,6 +15,7 @@ namespace ShapeshifterStudioPaymentCalculator
         public AddInstructor()
         {
             InitializeComponent();
+
         }
 
         private void BkFromAddInst_Click(object sender, EventArgs e)
@@ -40,23 +41,24 @@ namespace ShapeshifterStudioPaymentCalculator
             var fileOperations = new FileOperations();
 
             instructorLogbook.Log("Instructors.txt", logData);
-
+            confirmation1.Text = "Submitted";
         }
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
         {
-            string RmDCID = RmInstrTxtbox.Text;
+            var LBook = Program.instructorLogbook; // WORK ON THIS
+            string RmByID = RmInstrTxtbox.Text;
 
             foreach (Instructor instructor in Program.instructors.ToList())
             {
-                if (instructor.DCID == RmDCID)
+                if (instructor.DCID == RmByID)
                 {
                     Program.instructors.Remove(instructor);
+                    LBook.RemoveEntry("Instructors.txt", RmByID);
+                    LBook.RemoveEntry("BreakDown.txt", RmByID);
                 }
             }
-
-            var LBook = Program.instructorLogbook;
-            LBook.RemoveEntry("Instructors.txt", RmDCID);
+            confirmation2.Text = "Submitted";
         }
     }
 }

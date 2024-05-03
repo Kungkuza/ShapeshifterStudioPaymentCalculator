@@ -69,7 +69,8 @@ namespace ShapeshifterStudioPaymentCalculator
 
 
             calcu.GetInstructorRecords("PointsLog.txt", CalcPayTime, usdAmount, CPayInstructor);
-            
+            confirmation.Text = "Submitted";
+
             try
             {
                 // Read all lines from the BreakDown.txt file

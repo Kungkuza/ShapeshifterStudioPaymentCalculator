@@ -43,7 +43,7 @@ namespace ShapeshifterStudioPaymentCalculator
             string formattedDate = FeedbackDate.ToString("MM/dd/yyyy");
 
             Logbook logbook = new Logbook(Pointsfile);
-            string instructorName = selectedInstructor.Name;
+            string instructorName = selectedInstructor.DCID;
 
             Program.students.Add(new Student(StudentName, StudentDiscord));
 

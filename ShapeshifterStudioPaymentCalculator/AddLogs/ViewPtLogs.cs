@@ -64,5 +64,10 @@ namespace ShapeshifterStudioPaymentCalculator
                 }
             }
         }
+
+        private void TransferBtn_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

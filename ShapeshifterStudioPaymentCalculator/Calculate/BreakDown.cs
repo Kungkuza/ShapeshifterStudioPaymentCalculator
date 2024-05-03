@@ -51,6 +51,8 @@ namespace ShapeshifterStudioPaymentCalculator
             }
             // Call the CalculateInstructorPercentages method
             calculation.CalculateInstructorPercentages("PointsLog.txt", monthOfPayout, usdAmount);
+            confirmation.Text = "Submitted";
+            //confirmation.Text = confirmation.Text.//Timed clearing of .text
 
             try
             {

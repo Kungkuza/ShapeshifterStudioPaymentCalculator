@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PointLogs));
             this.FileReadoutrichTextBox = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.BkFromViewPtLogs = new System.Windows.Forms.Button();
             this.download = new System.Windows.Forms.Button();
+            this.TransferBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // FileReadoutrichTextBox
@@ -82,19 +84,32 @@
             this.download.UseVisualStyleBackColor = true;
             this.download.Click += new System.EventHandler(this.Download_click);
             // 
+            // TransferBtn
+            // 
+            this.TransferBtn.Location = new System.Drawing.Point(188, 275);
+            this.TransferBtn.Name = "TransferBtn";
+            this.TransferBtn.Size = new System.Drawing.Size(75, 38);
+            this.TransferBtn.TabIndex = 5;
+            this.TransferBtn.Text = "Transfer Backup";
+            this.TransferBtn.UseVisualStyleBackColor = true;
+            this.TransferBtn.Click += new System.EventHandler(this.TransferBtn_Click);
+            // 
             // PointLogs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.TransferBtn);
             this.Controls.Add(this.download);
             this.Controls.Add(this.BkFromViewPtLogs);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.FileReadoutrichTextBox);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "PointLogs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shapershifter Calculator - View Point System Logs";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -108,5 +123,6 @@
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Button BkFromViewPtLogs;
         private System.Windows.Forms.Button download;
+        private System.Windows.Forms.Button TransferBtn;
     }
 }

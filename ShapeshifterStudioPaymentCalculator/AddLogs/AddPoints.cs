@@ -44,7 +44,6 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void AddPtsSubmit_Click(object sender, EventArgs e)
         {
-            
             string Pointsfile = "PointsLog.txt";
             DateTime selectedDate = AddPtsCal.SelectionStart;
             string whichInstructor = WhichInstCombo.SelectedItem.ToString();
@@ -61,7 +60,7 @@ namespace ShapeshifterStudioPaymentCalculator
             Logbook logbook = new Logbook("PointsLog.txt");
 
             logbook.Log(Pointsfile, $"{dateStr}, {instructorName}, {typeofAction}, {pointsawarded}");
-
+            confirmation.Text = "Submitted";
         }
     }
 }

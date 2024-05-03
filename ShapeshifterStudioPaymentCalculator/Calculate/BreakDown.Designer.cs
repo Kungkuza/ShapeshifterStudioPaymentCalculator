@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form3));
             this.BkFromOverallBreakdown = new System.Windows.Forms.Button();
             this.AvailUSDTxtBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -35,6 +36,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.OwedAmountALLInstructorsRTB = new System.Windows.Forms.RichTextBox();
             this.SubmitUSDBtn = new System.Windows.Forms.Button();
+            this.confirmation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BkFromOverallBreakdown
@@ -97,12 +99,21 @@
             this.SubmitUSDBtn.UseVisualStyleBackColor = true;
             this.SubmitUSDBtn.Click += new System.EventHandler(this.SubmitUSDBtn_Click);
             // 
+            // confirmation
+            // 
+            this.confirmation.AutoSize = true;
+            this.confirmation.Location = new System.Drawing.Point(109, 141);
+            this.confirmation.Name = "confirmation";
+            this.confirmation.Size = new System.Drawing.Size(0, 13);
+            this.confirmation.TabIndex = 9;
+            // 
             // Form3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.ClientSize = new System.Drawing.Size(600, 622);
+            this.Controls.Add(this.confirmation);
             this.Controls.Add(this.SubmitUSDBtn);
             this.Controls.Add(this.OwedAmountALLInstructorsRTB);
             this.Controls.Add(this.label3);
@@ -110,8 +121,10 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.AvailUSDTxtBox);
             this.Controls.Add(this.BkFromOverallBreakdown);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form3";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shapershifter Calculator - Overall Breakdown";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -127,5 +140,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox OwedAmountALLInstructorsRTB;
         private System.Windows.Forms.Button SubmitUSDBtn;
+        private System.Windows.Forms.Label confirmation;
     }
 }

@@ -1,2 +1,1 @@
 Instructor, Points, Percentage, Pay this month
-Instructor: Thepandapodcast, Points: 20, Percentage: 8.16%, Pay this month: 8.16

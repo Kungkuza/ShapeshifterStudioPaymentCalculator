@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddPoints));
             this.AddPtsCal = new System.Windows.Forms.MonthCalendar();
             this.TypeofActionCombo = new System.Windows.Forms.ComboBox();
             this.PtsAmountTxtbox = new System.Windows.Forms.TextBox();
@@ -38,6 +39,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.WhichInstCombo = new System.Windows.Forms.ComboBox();
             this.AddPtsSubmit = new System.Windows.Forms.Button();
+            this.confirmation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // AddPtsCal
@@ -50,10 +52,10 @@
             // TypeofActionCombo
             // 
             this.TypeofActionCombo.FormattingEnabled = true;
-            this.TypeofActionCombo.Location = new System.Drawing.Point(475, 152);
+            this.TypeofActionCombo.Location = new System.Drawing.Point(436, 152);
             this.TypeofActionCombo.Margin = new System.Windows.Forms.Padding(2);
             this.TypeofActionCombo.Name = "TypeofActionCombo";
-            this.TypeofActionCombo.Size = new System.Drawing.Size(92, 21);
+            this.TypeofActionCombo.Size = new System.Drawing.Size(131, 21);
             this.TypeofActionCombo.TabIndex = 2;
             // 
             // PtsAmountTxtbox
@@ -104,9 +106,9 @@
             this.label3.Location = new System.Drawing.Point(282, 133);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(189, 17);
+            this.label3.Size = new System.Drawing.Size(123, 17);
             this.label3.TabIndex = 7;
-            this.label3.Text = "Which action was perfomed?";
+            this.label3.Text = "What did they do?";
             // 
             // label4
             // 
@@ -140,12 +142,21 @@
             this.AddPtsSubmit.UseVisualStyleBackColor = true;
             this.AddPtsSubmit.Click += new System.EventHandler(this.AddPtsSubmit_Click);
             // 
+            // confirmation
+            // 
+            this.confirmation.AutoSize = true;
+            this.confirmation.Location = new System.Drawing.Point(478, 272);
+            this.confirmation.Name = "confirmation";
+            this.confirmation.Size = new System.Drawing.Size(0, 13);
+            this.confirmation.TabIndex = 11;
+            // 
             // AddPoints
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.confirmation);
             this.Controls.Add(this.AddPtsSubmit);
             this.Controls.Add(this.WhichInstCombo);
             this.Controls.Add(this.label4);
@@ -156,8 +167,10 @@
             this.Controls.Add(this.PtsAmountTxtbox);
             this.Controls.Add(this.TypeofActionCombo);
             this.Controls.Add(this.AddPtsCal);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddPoints";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shapershifter Calculator - Add Points";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -176,5 +189,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox WhichInstCombo;
         private System.Windows.Forms.Button AddPtsSubmit;
+        private System.Windows.Forms.Label confirmation;
     }
 }

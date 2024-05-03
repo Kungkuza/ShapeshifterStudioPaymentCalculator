@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CalculatePay));
             this.BkFromCalcPay = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -40,6 +41,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.CalcPayRTB = new System.Windows.Forms.RichTextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
+            this.confirmation = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // BkFromCalcPay
@@ -107,7 +109,7 @@
             // USDAvailtxtBox
             // 
             this.USDAvailtxtBox.Location = new System.Drawing.Point(433, 102);
-            this.USDAvailtxtBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.USDAvailtxtBox.Margin = new System.Windows.Forms.Padding(2);
             this.USDAvailtxtBox.Name = "USDAvailtxtBox";
             this.USDAvailtxtBox.Size = new System.Drawing.Size(125, 20);
             this.USDAvailtxtBox.TabIndex = 10;
@@ -146,12 +148,21 @@
             this.vScrollBar1.Size = new System.Drawing.Size(17, 144);
             this.vScrollBar1.TabIndex = 14;
             // 
+            // confirmation
+            // 
+            this.confirmation.AutoSize = true;
+            this.confirmation.Location = new System.Drawing.Point(150, 279);
+            this.confirmation.Name = "confirmation";
+            this.confirmation.Size = new System.Drawing.Size(0, 13);
+            this.confirmation.TabIndex = 15;
+            // 
             // CalculatePay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(600, 345);
+            this.Controls.Add(this.confirmation);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.CalcPayRTB);
             this.Controls.Add(this.label3);
@@ -164,8 +175,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.BkFromCalcPay);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "CalculatePay";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shapeshifter Calculator - CalculatePay";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -186,5 +199,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox CalcPayRTB;
         private System.Windows.Forms.VScrollBar vScrollBar1;
+        private System.Windows.Forms.Label confirmation;
     }
 }
