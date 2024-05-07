@@ -51,11 +51,12 @@ namespace ShapeshifterStudioPaymentCalculator
 
             foreach (Instructor instructor in Program.instructors.ToList())
             {
-                if (instructor.DCID == RmByID)
+                string selectedDCID = instructor.DCID;
+                if (selectedDCID == RmByID)
                 {
                     Program.instructors.Remove(instructor);
                     LBook.RemoveEntry("Instructors.txt", RmByID);
-                    LBook.RemoveEntry("BreakDown.txt", RmByID);
+                    LBook.RemoveEntry("PointsLog.txt", RmByID);
                 }
             }
             confirmation2.Text = "Submitted";

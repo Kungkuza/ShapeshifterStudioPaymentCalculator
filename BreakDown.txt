@@ -1,1 +1,2 @@
 Instructor, Points, Percentage, Pay this month
+Instructor: WillyWonka, Points: 40, Percentage: 4.47%, Pay this month: 1.34

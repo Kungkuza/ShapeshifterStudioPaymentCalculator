@@ -67,7 +67,32 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void TransferBtn_Click(object sender, EventArgs e)
         {
+            // Show a file dialog to allow the user to select a file
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "Text files (*.txt)|*.txt|All files (*.*)|*.*";
+            openFileDialog.RestoreDirectory = true;
+            Logbook logbook = new Logbook("PointsLog.txt");
 
+            if (openFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                // Get the selected file path
+                string selectedFilePath = openFileDialog.FileName;
+
+                try
+                {
+                    // Call the method to overwrite the PointsLog.txt file with the contents of the uploaded file
+                    logbook.OverwritePointsLogFile(selectedFilePath);
+
+                    // Optionally, display a message to indicate success
+                    MessageBox.Show("File uploaded successfully and PointsLog.txt updated.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    // Display an error message if something goes wrong
+                    MessageBox.Show($"An error occurred: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
         }
     }
 }
+

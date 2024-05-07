@@ -134,5 +134,12 @@ namespace ShapeshifterStudioPaymentCalculator
             // Write the updated lines back to the file
             File.WriteAllLines(filePath, lines);
         }
+        public void OverwritePointsLogFile(string newfile)
+        {
+            string filePath = Path.Combine(directoryPath, fileName);
+            // Overwrite the PointsLog.txt file with the contents of the uploaded file
+            File.Copy(newfile, filePath, true);
+        }
+
     }
 }
