@@ -1,22 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ShapeshifterStudioPaymentCalculator
+﻿namespace ShapeshifterStudioPaymentCalculator
 {
     internal class Instructor : Individual
     {
-
-        protected int pointsAttributed {  get; set; }
+        protected int pointsAttributed { get; set; }
         public string DCID { get; set; }
-        //public List<Instructor> instructors = new List<Instructor>();
+        
+        public string StripeAccountId { get; set; }
 
         //Constructor
-        public Instructor(string name, string discordID) : base(name, discordID)
+        public Instructor(string name, string discordID, string stripeId) : base(name, discordID)
         {
-            
+            DCID = discordID;
+            StripeAccountId = stripeId;
         }
     }
 }

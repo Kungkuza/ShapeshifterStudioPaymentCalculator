@@ -1,21 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+﻿using ShapeshifterStudioPaymentCalculator.stripe;
+using Stripe;
+using System;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
-using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using File = System.IO.File;
 
 namespace ShapeshifterStudioPaymentCalculator
 {
     public partial class CalculatePay : Form
     {
         //needs ccalculator
+        decimal pay;
 
         public CalculatePay()
         {
@@ -35,6 +30,8 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void SubmitCalcPayBtn_Click(object sender, EventArgs e)
         {
+            pay = 0;
+
             DateTime CalcPayTime = CalcPaymonthCalendar.SelectionStart;
             string CPayInstructor = CPayInstcomboBox.Text;
             
@@ -68,13 +65,13 @@ namespace ShapeshifterStudioPaymentCalculator
             }
 
 
-            calcu.GetInstructorRecords("PointsLog.txt", CalcPayTime, usdAmount, CPayInstructor);
+            pay = calcu.GetInstructorRecords("PointsLog.txt", CalcPayTime, usdAmount, CPayInstructor);
             confirmation.Text = "Submitted";
 
             try
             {
                 // Read all lines from the BreakDown.txt file
-                string[] lines = File.ReadAllLines(BDTextPath);
+                string[] lines = System.IO.File.ReadAllLines(BDTextPath);
 
                 // Set the text of the RichTextBox to the contents of the BreakDown.txt file
                 CalcPayRTB.Text = string.Join(Environment.NewLine, lines);
@@ -86,6 +83,79 @@ namespace ShapeshifterStudioPaymentCalculator
             }
             // Now you can use the calculation instance
             //"PointsLog.txt" , CalcPayTime, usdAmount, CPayInstructor
+        }
+
+        private void SubmitPayment_Click(object sender, EventArgs e)
+        {
+            Instructor selectedInstructor = (Instructor)CPayInstcomboBox.SelectedItem;
+
+
+            if (selectedInstructor == null)
+            {
+                MessageBox.Show("Error: No instructor selected. Please select an instructor.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            } else if (pay == 0)
+            {
+                MessageBox.Show("Error: No payment calculated. Please calculate payment first, or check your input.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (selectedInstructor.StripeAccountId == "acct_none") { // If the instructor has no Stripe account
+                MessageBox.Show("Error: This instructor has an account id of acct_none. This either means they do not have a stripe account, or they have opted out of using it. Please contact the instructor to resolve this issue.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            // Ask for 2 confirmations before processing the payment
+            DialogResult confirmPayment = MessageBox.Show("Are you sure you want to process the payment for " + selectedInstructor.Name + "?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            for (int i = 1; i < 2; i++)
+            {
+                if (confirmPayment == DialogResult.Yes)
+                {
+                    confirmPayment = MessageBox.Show("Are you absolutely sure you want to process the payment for " + selectedInstructor.Name + "?", "Confirm Payment", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                }
+                else
+                {
+                   MessageBox.Show("Payment cancelled.", "Payment Cancelled", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+
+            // Disable the button to prevent multiple payments
+            SubmitPayment.Enabled = false;
+            SubmitCalcPayBtn.Enabled = false;
+            BkFromCalcPay.Enabled = false;
+
+            // Create a unloseable Dialog box with a "intermediate" loading bar and a "processing payment" message
+            PaymentStatusForm paymentStatusForm = new PaymentStatusForm();
+            paymentStatusForm.Show();
+
+            // Set the title of the form
+            paymentStatusForm.SetWindowTitle("Processing Payment");
+            paymentStatusForm.SetProgressText("Processing payment for " + selectedInstructor.Name + "...");
+
+            int amount = ShapeshifterStudioPaymentCalculator.Program.stripeHandler.ToStripeAmount(pay);
+
+            // Attempt to send the payment
+            try
+            {
+                // Send the payment
+                Transfer transfer = ShapeshifterStudioPaymentCalculator.Program.stripeHandler.PayoutToInstructor(selectedInstructor.StripeAccountId, amount);
+                paymentStatusForm.CloseForm();
+
+                MessageBox.Show("Payment successful! Transfer ID: " + transfer.Id + "\n\nThe instructor should see this in their account now.", "Payment Successful", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            catch (StripeException ex)
+            {
+                paymentStatusForm.CloseForm();
+                Console.WriteLine("Error processing payment: " + ex.Message);
+                MessageBox.Show("Error processing payment: " + ex.Message, "Payment Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            } finally
+            {
+                // Re-enable the buttons
+                SubmitPayment.Enabled = true;
+                SubmitCalcPayBtn.Enabled = true;
+                BkFromCalcPay.Enabled = true;
+            }
         }
     }
 }

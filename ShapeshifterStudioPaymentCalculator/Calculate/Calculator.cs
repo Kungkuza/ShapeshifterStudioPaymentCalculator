@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ShapeshifterStudioPaymentCalculator
 {
@@ -17,7 +15,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         }
 
-        public void GetInstructorRecords(string fileName, DateTime selectedDate, decimal USDPay, string specifiedInstructor)
+        public decimal GetInstructorRecords(string fileName, DateTime selectedDate, decimal USDPay, string specifiedInstructor)
         {
             string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             for (int i = 0; i < 3; i++)
@@ -82,6 +80,12 @@ namespace ShapeshifterStudioPaymentCalculator
                     decimal payThisMonth = USDPay * (decimal)percentage / 100;
 
                     BDLB.Log(BDFile, $"Instructor: {specifiedInstructor}, Points: {points}, Percentage: {percentage:F2}%, Pay this month: {payThisMonth:F2}");
+
+                    return payThisMonth;
+                } else
+                {
+                    BDLB.Log(BDFile, $"Instructor: {specifiedInstructor}, Points: 0, Percentage: 0.00%, Pay this month: 0.00");
+                    return 0;
                 }
             }
 

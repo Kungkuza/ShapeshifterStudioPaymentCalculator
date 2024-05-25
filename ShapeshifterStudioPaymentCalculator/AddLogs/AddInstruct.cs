@@ -30,16 +30,14 @@ namespace ShapeshifterStudioPaymentCalculator
             string NewInstName = NewInstNameTxtbox.Text;
 
             string AddInstructDCID = InstructDCIDTxtbox.Text;
+            string StripeAcctId = StripeAcctIdTxtbox.Text;
             Logbook instructorLogbook = Program.instructorLogbook;
 
-            Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID);
+            Instructor newInstructor = new Instructor(NewInstName, AddInstructDCID, StripeAcctId);
             Program.instructors.Add(newInstructor);
 
             //Add instructor to file Instructors.txt
-            string logData = $"{NewInstName}, {AddInstructDCID}";
-            //In the format of Name then DCID
-            var fileOperations = new FileOperations();
-
+            string logData = $"{NewInstName}, {AddInstructDCID}, {StripeAcctId}";
             instructorLogbook.Log("Instructors.txt", logData);
             confirmation1.Text = "Submitted";
         }
