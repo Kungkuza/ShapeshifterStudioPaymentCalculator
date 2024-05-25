@@ -33,16 +33,15 @@ namespace ShapeshifterStudioPaymentCalculator
             string directoryPath = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
 
             // Create Logbook instances
-            Program.instructorLogbook = new Logbook(fileOperations, directoryPath, "Instructors.txt");
-            Program.pointsLogbook = new Logbook(fileOperations, directoryPath, "PointsLog.txt");
-            Program.studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
+            instructorLogbook = new Logbook(fileOperations, directoryPath, "Instructors.txt");
+            pointsLogbook = new Logbook(fileOperations, directoryPath, "PointsLog.txt");
+            studentsLogbook = new Logbook(fileOperations, directoryPath, "Students.txt");
 
             // Read lines from the "Instructors.txt" file and initialize the list of instructors
             InitializeInstructors(instructorLogbook);
             InitializeStudents(studentsLogbook, "Students.txt");
             InitializeStripe();
-
-
+            
             // Run the application
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -101,9 +100,6 @@ namespace ShapeshifterStudioPaymentCalculator
                     string name = parts[0].Trim();
                     string dcid = parts[1].Trim();
                     string stripeAcctId = parts[2].Trim();
-
-                    Console.WriteLine("Name: " + name + ", DCID: " + dcid + ", Stripe Account ID: " + stripeAcctId);
-
                     instructors.Add(new Instructor(name, dcid, stripeAcctId));
 
                 }

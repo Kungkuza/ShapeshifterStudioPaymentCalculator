@@ -44,7 +44,7 @@ namespace ShapeshifterStudioPaymentCalculator
 
         private void RmInstrSubmit_Click(object sender, EventArgs e)
         {
-            var LBook = Program.instructorLogbook; // WORK ON THIS
+            var LBook = Program.instructorLogbook; 
             string RmByID = RmInstrTxtbox.Text;
 
             foreach (Instructor instructor in Program.instructors.ToList())
