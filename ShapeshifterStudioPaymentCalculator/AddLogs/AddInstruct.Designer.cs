@@ -40,12 +40,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.confirmation1 = new System.Windows.Forms.Label();
             this.confirmation2 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.StripeAcctIdTxtbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // BkFromAddInst
             // 
-            this.BkFromAddInst.Location = new System.Drawing.Point(35, 317);
-            this.BkFromAddInst.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BkFromAddInst.Location = new System.Drawing.Point(11, 331);
+            this.BkFromAddInst.Margin = new System.Windows.Forms.Padding(2);
             this.BkFromAddInst.Name = "BkFromAddInst";
             this.BkFromAddInst.Size = new System.Drawing.Size(43, 24);
             this.BkFromAddInst.TabIndex = 8;
@@ -56,15 +58,15 @@
             // NewInstNameTxtbox
             // 
             this.NewInstNameTxtbox.Location = new System.Drawing.Point(89, 103);
-            this.NewInstNameTxtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.NewInstNameTxtbox.Margin = new System.Windows.Forms.Padding(2);
             this.NewInstNameTxtbox.Name = "NewInstNameTxtbox";
             this.NewInstNameTxtbox.Size = new System.Drawing.Size(115, 20);
             this.NewInstNameTxtbox.TabIndex = 9;
             // 
             // InstructDCIDTxtbox
             // 
-            this.InstructDCIDTxtbox.Location = new System.Drawing.Point(89, 188);
-            this.InstructDCIDTxtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.InstructDCIDTxtbox.Location = new System.Drawing.Point(89, 156);
+            this.InstructDCIDTxtbox.Margin = new System.Windows.Forms.Padding(2);
             this.InstructDCIDTxtbox.Name = "InstructDCIDTxtbox";
             this.InstructDCIDTxtbox.Size = new System.Drawing.Size(116, 20);
             this.InstructDCIDTxtbox.TabIndex = 10;
@@ -72,15 +74,15 @@
             // RmInstrTxtbox
             // 
             this.RmInstrTxtbox.Location = new System.Drawing.Point(376, 103);
-            this.RmInstrTxtbox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RmInstrTxtbox.Margin = new System.Windows.Forms.Padding(2);
             this.RmInstrTxtbox.Name = "RmInstrTxtbox";
             this.RmInstrTxtbox.Size = new System.Drawing.Size(122, 20);
             this.RmInstrTxtbox.TabIndex = 11;
             // 
             // AddInstrSubmit
             // 
-            this.AddInstrSubmit.Location = new System.Drawing.Point(89, 254);
-            this.AddInstrSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddInstrSubmit.Location = new System.Drawing.Point(89, 245);
+            this.AddInstrSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.AddInstrSubmit.Name = "AddInstrSubmit";
             this.AddInstrSubmit.Size = new System.Drawing.Size(86, 24);
             this.AddInstrSubmit.TabIndex = 12;
@@ -90,8 +92,8 @@
             // 
             // RmInstrSubmit
             // 
-            this.RmInstrSubmit.Location = new System.Drawing.Point(376, 254);
-            this.RmInstrSubmit.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.RmInstrSubmit.Location = new System.Drawing.Point(376, 127);
+            this.RmInstrSubmit.Margin = new System.Windows.Forms.Padding(2);
             this.RmInstrSubmit.Name = "RmInstrSubmit";
             this.RmInstrSubmit.Size = new System.Drawing.Size(94, 24);
             this.RmInstrSubmit.TabIndex = 13;
@@ -102,6 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.label1.Location = new System.Drawing.Point(86, 88);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(205, 13);
@@ -111,7 +114,8 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(86, 173);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(86, 141);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 13);
             this.label2.TabIndex = 15;
@@ -120,6 +124,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
+            this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label3.Location = new System.Drawing.Point(373, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(288, 13);
@@ -142,12 +147,32 @@
             this.confirmation2.Size = new System.Drawing.Size(0, 13);
             this.confirmation2.TabIndex = 18;
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label4.Location = new System.Drawing.Point(86, 196);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(160, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "What is there stripe account ID?";
+            // 
+            // StripeAcctIdTxtbox
+            // 
+            this.StripeAcctIdTxtbox.Location = new System.Drawing.Point(89, 211);
+            this.StripeAcctIdTxtbox.Margin = new System.Windows.Forms.Padding(2);
+            this.StripeAcctIdTxtbox.Name = "StripeAcctIdTxtbox";
+            this.StripeAcctIdTxtbox.Size = new System.Drawing.Size(116, 20);
+            this.StripeAcctIdTxtbox.TabIndex = 19;
+            // 
             // AddInstructor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(667, 366);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.StripeAcctIdTxtbox);
             this.Controls.Add(this.confirmation2);
             this.Controls.Add(this.confirmation1);
             this.Controls.Add(this.label3);
@@ -160,7 +185,7 @@
             this.Controls.Add(this.NewInstNameTxtbox);
             this.Controls.Add(this.BkFromAddInst);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "AddInstructor";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Shapershifter Calculator - Add Instructor";
@@ -181,5 +206,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label confirmation1;
         private System.Windows.Forms.Label confirmation2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox StripeAcctIdTxtbox;
     }
 }

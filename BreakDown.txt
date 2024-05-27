@@ -1,2 +1,2 @@
 Instructor, Points, Percentage, Pay this month
-Instructor: WillyWonka, Points: 40, Percentage: 4.47%, Pay this month: 1.34
+Instructor: Bamboo, Points: 150, Percentage: 16.76%, Pay this month: 41.90

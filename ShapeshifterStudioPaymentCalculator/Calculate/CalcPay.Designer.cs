@@ -42,6 +42,7 @@
             this.CalcPayRTB = new System.Windows.Forms.RichTextBox();
             this.vScrollBar1 = new System.Windows.Forms.VScrollBar();
             this.confirmation = new System.Windows.Forms.Label();
+            this.SubmitPayment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // BkFromCalcPay
@@ -85,7 +86,7 @@
             this.SubmitCalcPayBtn.Name = "SubmitCalcPayBtn";
             this.SubmitCalcPayBtn.Size = new System.Drawing.Size(97, 29);
             this.SubmitCalcPayBtn.TabIndex = 7;
-            this.SubmitCalcPayBtn.Text = "Submit";
+            this.SubmitCalcPayBtn.Text = "Calulate";
             this.SubmitCalcPayBtn.UseVisualStyleBackColor = true;
             this.SubmitCalcPayBtn.Click += new System.EventHandler(this.SubmitCalcPayBtn_Click);
             // 
@@ -156,12 +157,23 @@
             this.confirmation.Size = new System.Drawing.Size(0, 13);
             this.confirmation.TabIndex = 15;
             // 
+            // SubmitPayment
+            // 
+            this.SubmitPayment.Location = new System.Drawing.Point(148, 282);
+            this.SubmitPayment.Name = "SubmitPayment";
+            this.SubmitPayment.Size = new System.Drawing.Size(97, 29);
+            this.SubmitPayment.TabIndex = 16;
+            this.SubmitPayment.Text = "Send Payment";
+            this.SubmitPayment.UseVisualStyleBackColor = true;
+            this.SubmitPayment.Click += new System.EventHandler(this.SubmitPayment_Click);
+            // 
             // CalculatePay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Highlight;
             this.ClientSize = new System.Drawing.Size(600, 345);
+            this.Controls.Add(this.SubmitPayment);
             this.Controls.Add(this.confirmation);
             this.Controls.Add(this.vScrollBar1);
             this.Controls.Add(this.CalcPayRTB);
@@ -200,5 +212,6 @@
         private System.Windows.Forms.RichTextBox CalcPayRTB;
         private System.Windows.Forms.VScrollBar vScrollBar1;
         private System.Windows.Forms.Label confirmation;
+        private System.Windows.Forms.Button SubmitPayment;
     }
 }
